@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Store</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bootsrap/css/bootstrap.min.css">
+</head>
+<body> 
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid mx-4">
+          <a class="navbar-brand" href="#">
+            <img src="assets/logo.png" alt="Bootstrap" width="60" height="50">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Community</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Support</a>
+              </li>
+            </ul>
+            <a class="reg btn btn-outline-success" href="#">Sign in</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+      <form class="d-flex m-3" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+
+      <div class="d-flex m-3 justify-content-between">
+        <h4 >Game categories</h4>
+        <div class="input-group" style="width: 120px;">
+          <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <option selected disabled>Sort by...</option>
+            <option value="1">New</option>
+            <option value="2">Popular</option>
+            <option value="3">Free</option>
+          </select>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap align-items-md-start mx-3 categories">
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Action
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Adventure
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Strategy
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Sports
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Races
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Puzzle
+          </label>
+        </div>
+        <div>
+          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+          <label class="form-check-label" for="defaultCheck1">
+            Rpg
+          </label>
+        </div>
+      </div>
+
+      <div class="row mt-3 mx-2">
+
+        <div class="col-md-4 p-2">
+          <div class="card text-bg-dark">
+            <img src="assets/pubg.jpg" class="card-img cardimg" alt="...">
+            <a href="" class="game-link">
+              <div class="card-img-overlay card-div">
+                <h3 class="card-title">$ Free</h3>
+                <h5 class="card-text">PUBG Global version</h5>
+                <p class="card-text"><small>Advanture / RPG</small></p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 p-2">
+          <div class="card text-bg-dark">
+            <img src="assets/big.jpg" class="card-img cardimg" alt="...">
+            <a href="" class="game-link">
+              <div class="card-img-overlay card-div">
+                <h3 class="card-title">$ 150</h3>
+                <h5 class="card-text">Transformers: The Game</h5>
+                <p class="card-text"><small>Advanture / RPG</small></p>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="col-md-4 p-2">
+          <div class="card text-bg-dark">
+            <img src="assets/race.jpg" class="card-img cardimg" alt="...">
+            <a href="" class="game-link">
+              <div class="card-img-overlay card-div">
+                <h3 class="card-title">$ 100</h3>
+                <h5 class="card-text">Need for Speed</h5>
+                <p class="card-text"><small>Race / Arcade</small></p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="bootsrap/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
