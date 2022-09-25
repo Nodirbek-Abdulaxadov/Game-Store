@@ -6,7 +6,7 @@ namespace DataLayer.Entities
     {
         public Game()
         {
-            CategoryIds = new List<int>();
+            Categories = new List<CategoryGame>();
         }
 
         [Required]
@@ -26,6 +26,8 @@ namespace DataLayer.Entities
         [Required]
         public bool IsDeleted { get; set; } = false;
 
-        public ICollection<int> CategoryIds { get; set; }
+        public int GameCategoryId { get; set; }
+
+        public List<CategoryGame>? Categories { get; set; }
     }
 }

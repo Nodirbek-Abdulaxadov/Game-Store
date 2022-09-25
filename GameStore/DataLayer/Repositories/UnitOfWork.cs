@@ -6,16 +6,14 @@ namespace DataLayer.Repositories
     public class UnitOfWork : IUnitOfWork
     {
         private readonly GameStoreDBContext _dbcontext;
-        private readonly IGameCategoryInterface _gameCategoryInterface;
-        private readonly IGameInterface _gameInterface;
 
         public UnitOfWork(GameStoreDBContext dbcontext,
                            IGameCategoryInterface gameCategoryInterface,
                            IGameInterface gameInterface)
         {
             _dbcontext = dbcontext;
-            _gameCategoryInterface = gameCategoryInterface;
-            _gameInterface = gameInterface;
+            GameCategories = gameCategoryInterface;
+            Games = gameInterface;
         }
         public IGameCategoryInterface GameCategories { get; }
 

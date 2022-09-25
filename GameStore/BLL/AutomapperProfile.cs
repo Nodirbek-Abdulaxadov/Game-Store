@@ -1,11 +1,6 @@
 ﻿using AutoMapper;
 using BLL.Models;
 using DataLayer.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -13,7 +8,13 @@ namespace BLL
     {
         public AutomapperProfile()
         {
-            CreateMap<GameCategory, GameCategoryModel>().ReverseMap();
+            CreateMap<GameCategory, GameCategoryModel>()
+                .ForMember(rm => rm.CategoryGamesIds, r => r.MapFrom(g => g.Games.Select(i => i.GameId)))
+                .ReverseMap();
+
+            CreateMap<Game, GameModel>()
+                .ForMember(rm => rm.Categories, r => r.MapFrom(i => i.Categories.Select(c => c.Category.Name)))
+                .ReverseMap();
         }
     }
 }

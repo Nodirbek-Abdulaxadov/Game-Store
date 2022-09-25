@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model IEnumerable<GameModel>
+
+<div class="row mt-3 mx-2">
+
+    @if (Model == null)
+    {
+        <h1>There is no any data yet!</h1>
+    }
+    else
+    {
+        @foreach (var game in Model)
+        {
+            <div class="col-md-4 p-2">
+                <div class="card text-bg-dark">
+                    <img src="~/@game.ImagePath" class="card-img cardimg" alt="...">
+                    <a href="" class="game-link">
+                        <div class="card-img-overlay card-div">
+                            @{
+                                var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";
+                            }
+                            <h3 class="card-title">@gamePrice</h3>
+                            <h5 class="card-text">@game.Name</h5>
+                            <p class="card-text"><small>@string.Join(" / ", game.Categories)</small></p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @*<li class="page-item">
+                <a class="page-link" href="#" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>*@
+            @for (int i = 1; i < 4; i++)
+            {
+                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i">@i</a></li>
+            }
+            @*<li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>*@
+        </ul>
+    </nav>
+</div>
