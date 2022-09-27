@@ -1,6 +1,6 @@
 ﻿using BLL.Interfaces;
+using BLL.Models;
 using Microsoft.AspNetCore.Mvc;
-using PagedList;
 using System.Diagnostics;
 using Web.Models;
 
@@ -16,12 +16,20 @@ namespace Web.Controllers
             _gameService = gameService;
         }
 
-        public async Task<IActionResult> IndexAsync(int? page)
+        public async Task<IActionResult> IndexAsync(GameFilterViewModel viewModel)
         {
-            var gameList = await _gameService.GetAllGamesAsync();
-            gameList = gameList.ToPagedList(page ?? 1, pageSize);
-            ViewBag.PageCount = gameList.ToPagedList(page ?? 1, pageSize);
-            return View(gameList);
+            var gameList = await _gameService.GetAllGamesByNameAsync(viewModel.Name);
+
+            var pagedList = PagedList<GameModel>.ToPagedList(gameList, viewModel.Page, pageSize);
+
+            var model = new GameFilterViewModel()
+            {
+                PagedGames = pagedList,
+                Sort = viewModel.Sort ?? SortType.New,
+                Name = viewModel.Name
+            };
+            
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

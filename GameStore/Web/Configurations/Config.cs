@@ -28,7 +28,7 @@ namespace Web.Configurations
             builder.Services.AddScoped<IGameInterface, GameRepository>();
             builder.Services.AddScoped<IGameCategoryInterface, GameCategoryRepository>();
             builder.Services.AddScoped<IGameCategoryService, GameCategoryService>();
-            builder.Services.AddScoped<IGameService, GameService>();
+            builder.Services.AddTransient<IGameService, GameService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             // Add Application Database Context

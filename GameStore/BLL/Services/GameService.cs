@@ -23,10 +23,14 @@ namespace BLL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<GameModel>> GetAllGamesAsync()
+        public async Task<IEnumerable<GameModel>> GetAllGamesByNameAsync(string? name)
         {
             var Games = (await _unitOfWork.Games.GetAllAsync())
                                        .Select(i => _mapper.Map<GameModel>(i));
+
+            if (!(string.IsNullOrEmpty(name)))
+                return Games.Where(i => i.Name.ToLower().Contains(name.ToLower())).ToList();
+
             if (Games.Count() == 0)
             {
                 AddMockData().Wait();

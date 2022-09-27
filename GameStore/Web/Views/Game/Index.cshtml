@@ -2,7 +2,30 @@
     ViewData["Title"] = "Home Page";
 }
 
-@model IEnumerable<GameModel>
+@model GameFilterViewModel
+
+<form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
+        <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+        <button class="btn btn-primary" type="submit">Search</button>
+</form>
+@* <div class="d-flex m-3 justify-content-between">
+  <h4 >Game categories</h4>
+  <div class="input-group" style="width: 200px;">
+        <span class="me-2 mt-1">Sorted by</span>
+    <select asp-for="Sort" class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+      <option value="1" selected>New</option>
+      <option value="2">Popular</option>
+      <option value="3">Free</option>
+    </select>
+  </div>
+</div>
+<div class="d-flex flex-wrap align-items-md-start mx-3 categories">
+  <div>
+    <a class="btn btn-outline-primary">
+      Action
+    </a>
+  </div>
+</div> *@
 
 <div class="row mt-3 mx-2">
 
@@ -12,7 +35,7 @@
     }
     else
     {
-        @foreach (var game in Model)
+        @foreach (var game in Model.PagedGames)
         {
             <div class="col-md-4 p-2">
                 <div class="card text-bg-dark">
@@ -34,20 +57,42 @@
 
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
-            @*<li class="page-item">
-                <a class="page-link" href="#" aria-label="Previous">
-                    <span aria-hidden="true">&laquo;</span>
-                </a>
-            </li>*@
-            @for (int i = 1; i < 4; i++)
+                @* @if (Model.PagedGames.HasPrevious)
+                {
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                }
+                else
+                {
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                } *@
+            @for (int i = 1; i <= Model.PagedGames.TotalPages; i++)
             {
                 <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i">@i</a></li>
             }
-            @*<li class="page-item">
-                <a class="page-link" href="#" aria-label="Next">
-                    <span aria-hidden="true">&raquo;</span>
-                </a>
-            </li>*@
+                @* @if (Model.PagedGames.HasNext)
+                {
+                <li class="page-item">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                }
+                else
+                {
+                <li class="page-item disabled">
+                    <a class="page-link" href="#" aria-label="Previous">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                } *@
         </ul>
     </nav>
 </div>

@@ -5,6 +5,6 @@ namespace BLL.Interfaces
     public interface IGameService
     {
         Task AddMockData();
-        Task<IEnumerable<GameModel>> GetAllGamesAsync();
+        Task<IEnumerable<GameModel>> GetAllGamesByNameAsync(string? name);
     }
 }
