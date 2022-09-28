@@ -5,27 +5,27 @@
 @model GameFilterViewModel
 
 <form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
-        <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
-        <button class="btn btn-primary" type="submit">Search</button>
+    <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+    <div class="input-group mx-3" style="width: 150px;">
+        <select asp-for="Sort" class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
+            <option selected disabled value="0">Sort by...</option>
+            <option value="1">New</option>
+            <option value="2">Popular</option>
+            <option value="3">Free</option>
+        </select>
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
 </form>
-@* <div class="d-flex m-3 justify-content-between">
-  <h4 >Game categories</h4>
-  <div class="input-group" style="width: 200px;">
-        <span class="me-2 mt-1">Sorted by</span>
-    <select asp-for="Sort" class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
-      <option value="1" selected>New</option>
-      <option value="2">Popular</option>
-      <option value="3">Free</option>
-    </select>
-  </div>
+<div class="m-3">
+    <h4>Game categories</h4>
+    <div class="d-flex flex-wrap align-items-md-start categories">
+        <div>
+            <a class="btn btn-outline-primary mb-2">
+                Action
+            </a>
+        </div>
+    </div>
 </div>
-<div class="d-flex flex-wrap align-items-md-start mx-3 categories">
-  <div>
-    <a class="btn btn-outline-primary">
-      Action
-    </a>
-  </div>
-</div> *@
 
 <div class="row mt-3 mx-2">
 
@@ -48,6 +48,7 @@
                             <h3 class="card-title">@gamePrice</h3>
                             <h5 class="card-text">@game.Name</h5>
                             <p class="card-text"><small>@string.Join(" / ", game.Categories)</small></p>
+                            <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>
                         </div>
                     </a>
                 </div>
@@ -75,7 +76,7 @@
                 } *@
             @for (int i = 1; i <= Model.PagedGames.TotalPages; i++)
             {
-                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i" asp-route-name="@Model.Name">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i" asp-route-name="@Model.Name" asp-route-sort="@Model.Sort">@i</a></li>
             }
                 @* @if (Model.PagedGames.HasNext)
                 {

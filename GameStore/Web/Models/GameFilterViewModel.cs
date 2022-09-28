@@ -11,11 +11,4 @@ namespace Web.Models
         public IEnumerable<GameCategory>? Categories { get; set; }
         public int? Page { get; set; }
     }
-
-    public enum SortType
-    { 
-        New,
-        Popular,
-        Free
-    }
 }

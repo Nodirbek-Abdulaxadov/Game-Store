@@ -9,7 +9,8 @@
       "BLL/1.0.0": {
         "dependencies": {
           "AutoMapper": "11.0.1",
-          "DataLayer": "1.0.0"
+          "DataLayer": "1.0.0",
+          "Microsoft.EntityFrameworkCore": "6.0.9"
         },
         "runtime": {
           "BLL.dll": {}

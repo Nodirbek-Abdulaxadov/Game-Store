@@ -25,6 +25,7 @@ namespace DataLayer.Entities
 
         [Required]
         public bool IsDeleted { get; set; } = false;
+        public int Sold { get; set; } = 0;
 
         public int GameCategoryId { get; set; }
 

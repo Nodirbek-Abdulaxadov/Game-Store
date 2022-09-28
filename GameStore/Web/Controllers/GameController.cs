@@ -18,14 +18,15 @@ namespace Web.Controllers
 
         public async Task<IActionResult> IndexAsync(GameFilterViewModel viewModel)
         {
-            var gameList = await _gameService.GetAllGamesByNameAsync(viewModel.Name);
+            var sort = viewModel.Sort ?? SortType.Unselect;
+            var gameList = await _gameService.GetAllGamesByNameAsync(viewModel.Name, sort);
 
             var pagedList = PagedList<GameModel>.ToPagedList(gameList, viewModel.Page, pageSize);
 
             var model = new GameFilterViewModel()
             {
                 PagedGames = pagedList,
-                Sort = viewModel.Sort ?? SortType.New,
+                Sort = sort,
                 Name = viewModel.Name
             };
             

@@ -23,20 +23,29 @@ namespace BLL.Services
             _unitOfWork = unitOfWork;
             _mapper = mapper;
         }
-        public async Task<IEnumerable<GameModel>> GetAllGamesByNameAsync(string? name)
+        public async Task<IEnumerable<GameModel>> GetAllGamesByNameAsync(string? name, SortType sort)
         {
-            var Games = (await _unitOfWork.Games.GetAllAsync())
-                                       .Select(i => _mapper.Map<GameModel>(i));
+            var Games = await _unitOfWork.Games.GetAllGamesWithCategories();
+
+            switch (sort)
+            {
+                case SortType.Unselect:
+                case SortType.New: Games = Games.OrderByDescending(i => i.Id); break;
+                case SortType.Free: Games = Games.Where(i => i.Price == 0); break;
+                case SortType.Popular: Games = Games.OrderByDescending(i => i.Sold); break;
+            }
+            
+            var gameModels = Games.Select(i => _mapper.Map<GameModel>(i));
 
             if (!(string.IsNullOrEmpty(name)))
-                return Games.Where(i => i.Name.ToLower().Contains(name.ToLower())).ToList();
+                return gameModels.Where(i => i.Name.ToLower().Contains(name.ToLower())).ToList();
 
             if (Games.Count() == 0)
             {
                 AddMockData().Wait();
             }
 
-            return Games;
+            return gameModels;
         }
 
         public async Task AddMockData()

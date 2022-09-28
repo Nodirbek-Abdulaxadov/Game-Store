@@ -704,7 +704,8 @@
   "projectFileDependencyGroups": {
     "net6.0": [
       "AutoMapper >= 11.0.1",
-      "DataLayer >= 1.0.0"
+      "DataLayer >= 1.0.0",
+      "Microsoft.EntityFrameworkCore >= 6.0.9"
     ]
   },
   "packageFolders": {
@@ -759,6 +760,10 @@
           "AutoMapper": {
             "target": "Package",
             "version": "[11.0.1, )"
+          },
+          "Microsoft.EntityFrameworkCore": {
+            "target": "Package",
+            "version": "[6.0.9, )"
           }
         },
         "imports": [

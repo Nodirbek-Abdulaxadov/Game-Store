@@ -39,14 +39,9 @@
     </nav>
 
     <div class="container">
-      <!-- <form class="d-flex m-3" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
-        <button class="btn btn-primary" type="submit">Search</button>
-      </form> -->
-
-      <!-- <div class="d-flex m-3 justify-content-between">
-        <h4 >Game categories</h4>
-        <div class="input-group" style="width: 120px;">
+      <form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
+        <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+        <div class="input-group mx-3" style="width: 150px;">
           <select class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
             <option selected disabled>Sort by...</option>
             <option value="1">New</option>
@@ -54,51 +49,19 @@
             <option value="3">Free</option>
           </select>
         </div>
+        
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+ <div class="m-3">
+    <h4 >Game categories</h4>
+    <div class="d-flex flex-wrap align-items-md-start categories">
+      <div>
+        <a class="btn btn-outline-primary mb-2">
+          Action
+        </a>
       </div>
-      <div class="d-flex flex-wrap align-items-md-start mx-3 categories">
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Action
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Adventure
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Strategy
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Sports
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Races
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Puzzle
-          </label>
-        </div>
-        <div>
-          <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
-          <label class="form-check-label" for="defaultCheck1">
-            Rpg
-          </label>
-        </div>
-      </div> -->
+    </div> 
+</div>
 
       <div class="row mt-3 mx-2">
 
@@ -110,6 +73,7 @@
                 <h3 class="card-title">$ Free</h3>
                 <h5 class="card-text">PUBG Global version</h5>
                 <p class="card-text"><small>Advanture / RPG</small></p>
+                <p style="margin-top: -15px; float: right;">12334 Sold out</p>
               </div>
             </a>
           </div>
