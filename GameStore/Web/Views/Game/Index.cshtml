@@ -75,7 +75,7 @@
                 } *@
             @for (int i = 1; i <= Model.PagedGames.TotalPages; i++)
             {
-                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i">@i</a></li>
+                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="index" asp-route-page="@i" asp-route-name="@Model.Name">@i</a></li>
             }
                 @* @if (Model.PagedGames.HasNext)
                 {
