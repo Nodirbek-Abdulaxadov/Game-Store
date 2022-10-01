@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Game detail Page";
+}
+
+@model GameModel
+
+<div class="container">
+        <a asp-controller="game" asp-action="index" class="btn btn-primary mt-3"><i class="las la-arrow-left"></i> Back</a>
+        <div class="row">
+            <div class="col-md-1"></div>
+            <div class="col-md-10 d-flex justify-content-center">
+                <img src="~/@Model.ImagePath" class="shadov detail-img" alt="">
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+        <div class="row">
+          <div class="col-md-1"></div>
+          <div class="col-md-10" style="margin: 40px 50px 40px 0px;">
+            <h2>@Model.Name</h2>
+            <div class="d-flex justify-content-between">
+                @{
+                    var gamePrice = Model.Price == 0 ? "$ Free" : $"$ {Model.Price}";
+                }
+                <h3 class="card-title">@gamePrice</h3>
+              <a href="" class="btn btn-primary"> Add to cart <i class="las la-shopping-cart" style="font-size:22px;"></i></a>
+            </div>
+            <hr>
+            <div class="categories">
+                @foreach (var category in Model.Categories)
+                {
+                    <span class="badgee">@category</span>
+                }
+            </div>
+            <p class="mt-5">@Model.Description</p>
+          <div class="col-md-2"></div>
+        </div>
+    </div>

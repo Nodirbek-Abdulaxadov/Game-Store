@@ -33,6 +33,12 @@ namespace Web.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> GameDetail(int id)
+        {
+            var game = await _gameService.GetGameByIdAsync(id);
+            return View(game);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

@@ -18,5 +18,8 @@ namespace DataLayer.Repositories
             => await dbContext.Games.Include(i => i.Categories)
                                     .ThenInclude(i => i.Category)
                                     .ToListAsync();
+
+        public async Task<Game> GetByIdWithCategories(int id)
+            => (await GetAllGamesWithCategories()).FirstOrDefault(i => i.Id == id);
     }
 }

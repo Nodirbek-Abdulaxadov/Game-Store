@@ -64,5 +64,8 @@ namespace BLL.Services
                 await _unitOfWork.SaveAsync();
             }
         }
+
+        public async Task<GameModel> GetGameByIdAsync(int id)
+            => _mapper.Map<GameModel>(await _unitOfWork.Games.GetByIdWithCategories(id));
     }
 }
