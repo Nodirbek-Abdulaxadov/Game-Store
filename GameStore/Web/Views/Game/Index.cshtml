@@ -19,11 +19,14 @@
 <div class="m-3">
     <h4>Game categories</h4>
     <div class="d-flex flex-wrap align-items-md-start categories">
-        <div>
-            <a class="btn btn-outline-primary mb-2">
-                Action
-            </a>
-        </div>
+        @foreach (var category in Model.Categories)
+        {
+            <div>
+                <a class="btn btn-outline-primary mb-2">
+                    @category.Name
+                </a>
+            </div>
+        }
     </div>
 </div>
 

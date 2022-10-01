@@ -35,3 +35,20 @@ body {
 .game-link:hover {
     color: #198754;
 }
+
+.shadov {
+    -webkit-box-shadow: 0px 0px 15px 12px rgba(0, 0, 0, 0.35);
+    -moz-box-shadow: 0px 0px 15px 12px rgba(0, 0, 0, 0.35);
+    box-shadow: 0px 0px 15px 12px rgba(0, 0, 0, 0.35);
+}
+
+.detail-img {
+    margin-top: 20px;
+    width: 90%;
+    object-fit: cover;
+}
+
+.categories span {
+    font-size: 14px;
+    margin: 0 10px;
+}
