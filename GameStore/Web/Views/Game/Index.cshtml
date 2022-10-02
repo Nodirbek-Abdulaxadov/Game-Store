@@ -5,7 +5,7 @@
 @model GameFilterViewModel
 
 <form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
-    <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+    <input asp-for="Name" minlength="3" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
     <div class="input-group mx-3" style="width: 150px;">
         <select asp-for="Sort" class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
             <option selected disabled value="0">Sort by...</option>

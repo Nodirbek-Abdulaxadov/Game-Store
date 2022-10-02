@@ -52,3 +52,24 @@ body {
     font-size: 14px;
     margin: 0 10px;
 }
+
+.container form {
+    margin: 20px auto;
+    width: 85%;
+    padding: 30px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 12px;
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.form-btns a, button {
+    margin: 0 15px;
+    width: 120px;
+}

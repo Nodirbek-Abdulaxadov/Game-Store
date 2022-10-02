@@ -1,0 +1,58 @@
+﻿@{
+    ViewData["Title"] = "Add new game page";
+}
+
+
+<div class="container mt-4">
+    <h2>Add new game</h2>
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" placeholder="Enter game name">
+            <span></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" value="0">
+            <span></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Select game image</label>
+            <input class="form-control" type="file" accept="image/*">
+            <span></span>
+        </div>
+        <div class="category">
+            <h6>Select game categories</h6>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Action</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Race</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Strategy</label>
+            </div>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                <label class="form-check-label" for="inlineCheckbox2">Advanture</label>
+            </div>
+        </div>
+        <span></span>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea class="form-control" rows="3"></textarea>
+            <span></span>
+        </div>
+        <div class="form-btns d-flex justify-content-center">
+            <a href="index.html" class="btn btn-secondary">
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+        </div>
+    </form>
+</div>
