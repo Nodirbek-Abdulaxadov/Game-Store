@@ -88,5 +88,10 @@ namespace BLL.Services
 
         public async Task<bool> Exist(string name)
             => (await _unitOfWork.Games.GetAllAsync()).Any(i => i.Name == name);
+
+        public async Task<IEnumerable<GameModel>> GetGamesByCategoryId(int categoryId)
+            => (await _unitOfWork.Games.GetAllGamesWithCategories())
+                                       .Where(g => g.Categories.Any(i => i.CategoryId == categoryId))
+                                       .Select(i => _mapper.Map<GameModel>(i));
     }
 }

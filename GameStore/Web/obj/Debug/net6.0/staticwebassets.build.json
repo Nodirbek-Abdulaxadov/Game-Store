@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "znz1KIZduSRjO5JHcEgfdtO+a2/DIncnMfx96LP8384=",
+  "Hash": "wxvTqd9RxGsQfD7cz0EDepvkzXj28nXXw3ORgouQpfs=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -848,6 +848,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",

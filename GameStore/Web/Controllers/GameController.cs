@@ -23,7 +23,7 @@ namespace Web.Controllers
             _categoryService = categoryService;
         }
 
-        public async Task<IActionResult> IndexAsync(GameFilterViewModel viewModel)
+        public async Task<IActionResult> Index(GameFilterViewModel viewModel)
         {
             var sort = viewModel.Sort ?? SortType.Unselect;
             var gameList = await _gameService.GetAllGamesByNameAsync(viewModel.Name, sort);
@@ -34,9 +34,26 @@ namespace Web.Controllers
             {
                 PagedGames = pagedList,
                 Sort = sort,
-                Name = viewModel.Name
+                Name = viewModel.Name,
+                Categories = await _categoryService.GetAllGameCategoriesAsync()
             };
             
+            return View(model);
+        }
+
+        public async Task<IActionResult> Category(GameFilterViewModel viewModel)
+        {
+            var gameList = await _gameService.GetGamesByCategoryId(viewModel.categoryId);
+
+            var pagedList = PagedList<GameModel>.ToPagedList(gameList, viewModel.Page, pageSize);
+
+            var model = new GameFilterViewModel()
+            {
+                PagedGames = pagedList,
+                Categories = await _categoryService.GetAllGameCategoriesAsync(),
+                categoryId = viewModel.categoryId
+            };
+
             return View(model);
         }
 

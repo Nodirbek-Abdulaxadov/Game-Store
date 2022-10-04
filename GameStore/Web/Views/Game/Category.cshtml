@@ -1,0 +1,79 @@
+﻿@{
+    ViewData["Title"] = "Categpry games";
+}
+
+@model GameFilterViewModel
+
+<a asp-controller="game" asp-action="index" class="btn btn-primary mt-2"><i class="las la-arrow-left"></i> Back</a>
+@{
+    string categoryName = @Model.Categories.FirstOrDefault(c => c.Id == Model.categoryId).Name;
+}
+<h2 class="text-center mb-4">@categoryName games</h2>
+
+<div class="m-3">
+    <div class="d-flex flex-wrap align-items-md-start categories">
+        @if (Model.Categories.Count() < 1 || Model.Categories == null)
+        {
+            <h2>@categoryName category games not found!</h2>
+        }
+        else
+        {
+            @foreach (var category in Model.Categories)
+            {
+                <div>
+                    @if (category.Id == Model.categoryId)
+                    {
+                        <a asp-controller="game" asp-action="category" asp-route-categoryId="@category.Id" class="btn btn-primary mb-2" style="width: 120px;">
+                            @category.Name
+                        </a>
+                    }
+                    else
+                    {
+                        <a asp-controller="game" asp-action="category" asp-route-categoryId="@category.Id" class="btn btn-outline-primary mb-2" style="width: 120px;">
+                            @category.Name
+                        </a>
+                    }
+                </div>
+            }
+        }
+    </div>
+</div>
+
+<div class="row mt-3 mx-2">
+
+    @if (Model == null)
+    {
+        <h1>There is no any data yet!</h1>
+    }
+    else
+    {
+        @foreach (var game in Model.PagedGames)
+        {
+            <div class="col-md-4 p-2">
+                <div class="card text-bg-dark">
+                    <img src="~/@game.ImagePath" class="card-img cardimg" alt="...">
+                    <a asp-controller="game" asp-action="gamedetail" asp-route-id="@game.Id" class="game-link">
+                        <div class="card-img-overlay card-div">
+                            @{
+                                var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";
+                            }
+                            <h3 class="card-title">@gamePrice</h3>
+                            <h5 class="card-text">@game.Name</h5>
+                            <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
+                            <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        }
+    }
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            @for (int i = 1; i <= Model.PagedGames.TotalPages; i++)
+            {
+                <li class="page-item"><a class="page-link" asp-controller="game" asp-action="category" asp-route-page="@i" asp-route-categoryId="@Model.categoryId">@i</a></li>
+            }
+        </ul>
+    </nav>
+</div>
