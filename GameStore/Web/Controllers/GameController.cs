@@ -3,17 +3,24 @@ using BLL.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Web.Models;
+using Web.Services;
 
 namespace Web.Controllers
 {
     public class GameController : Controller
     {
         private readonly IGameService _gameService;
+        private readonly IFileService _fileService;
+        private readonly IGameCategoryService _categoryService;
         private int pageSize = 6;
 
-        public GameController(IGameService gameService)
+        public GameController(IGameService gameService,
+                              IFileService fileService,
+                              IGameCategoryService categoryService)
         {
             _gameService = gameService;
+            _fileService = fileService;
+            _categoryService = categoryService;
         }
 
         public async Task<IActionResult> IndexAsync(GameFilterViewModel viewModel)
@@ -40,9 +47,38 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        public IActionResult Add()
+        public async Task<IActionResult> Add()
         {
-            return View();
+            var categories = await _categoryService.GetAllGameCategoriesAsync();
+            var model = new AddGameViewModel()
+            {
+                SelectedCategories = categories.Select(c => new CategorySelect() { Name = c.Name }).ToList()
+            };
+            return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Add(AddGameViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _gameService.Exist(viewModel.Name))
+                {
+                    ModelState.AddModelError(nameof(viewModel.Name), "This name already exist!");
+                    return View(viewModel);
+                }
+
+                var result = await _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
+                                                        _fileService.UploadImage(viewModel.ImageFile), viewModel.SelectedCategories.Where(c => c.IsChecked == true).Select(i => i.Name).ToList());
+                return RedirectToAction("gamedetail", result);
+            }
+
+            var categories = await _categoryService.GetAllGameCategoriesAsync();
+            var model = new AddGameViewModel()
+            {
+                SelectedCategories = categories.Select(c => new CategorySelect() { Name = c.Name }).ToList()
+            };
+            return View(model);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

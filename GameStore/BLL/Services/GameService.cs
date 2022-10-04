@@ -67,5 +67,26 @@ namespace BLL.Services
 
         public async Task<GameModel> GetGameByIdAsync(int id)
             => _mapper.Map<GameModel>(await _unitOfWork.Games.GetByIdWithCategories(id));
+
+        public async Task<GameModel> AddGameAsync(string name, string description, decimal price, string imagePath, List<string> categories)
+        {
+            var categoryList = await _unitOfWork.GameCategories.GetAllAsync();
+            var newGame = new GameModel()
+            {
+                Name = name,
+                Description = description,
+                Price = price,
+                ImagePath = imagePath,
+                Categories = categories.Select(c => _mapper.Map<GameCategoryModel>(categoryList.FirstOrDefault(i => i.Name == c))).ToList()
+            };
+
+            var model = await _unitOfWork.Games.AddAsync(_mapper.Map<Game>(newGame));
+            await _unitOfWork.SaveAsync();
+
+            return _mapper.Map<GameModel>(model);
+        }
+
+        public async Task<bool> Exist(string name)
+            => (await _unitOfWork.Games.GetAllAsync()).Any(i => i.Name == name);
     }
 }

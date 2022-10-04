@@ -13,8 +13,11 @@ namespace DataLayer.Repositories
         {
             this.dbContext = dbContext;
         }
-        public async Task AddAsync(TEntity entity)
-            => await dbContext.Set<TEntity>().AddAsync(entity);
+        public async Task<TEntity> AddAsync(TEntity entity)
+        {
+            await dbContext.Set<TEntity>().AddAsync(entity);
+            return entity;
+        }
 
         public void Delete(TEntity entity) 
             => dbContext.Set<TEntity>().Remove(entity);

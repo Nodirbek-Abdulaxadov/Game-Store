@@ -50,7 +50,7 @@
                             }
                             <h3 class="card-title">@gamePrice</h3>
                             <h5 class="card-text">@game.Name</h5>
-                            <p class="card-text"><small>@string.Join(" / ", game.Categories)</small></p>
+                            <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
                             <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>
                         </div>
                     </a>

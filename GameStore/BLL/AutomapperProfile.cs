@@ -13,8 +13,17 @@ namespace BLL
                 .ReverseMap();
 
             CreateMap<Game, GameModel>()
-                .ForMember(rm => rm.Categories, r => r.MapFrom(i => i.Categories.Select(c => c.Category.Name)))
-                .ReverseMap();
+                .ForMember(rm => rm.Categories, r => r.MapFrom(i => i.Categories.Select(c => new GameCategoryModel()
+                {
+                    Id = c.Category.Id,
+                    Name = c.Category.Name
+                })));
+            CreateMap<GameModel, Game>()
+                   .ForMember(rm => rm.Categories, r => r.MapFrom(i => i.Categories.Select(c => new CategoryGame()
+                   {
+                       CategoryId = c.Id,
+                       GameId = i.Id
+                   })));
         }
     }
 }

@@ -1,10 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "AGLkotWyyLuswhAcC1x6XnIGxzNgOraafATZ7BvWu1MHkgEve9lxA3BZue/LkeRu4ShsSsFQPb7z0Zjd2G1Fxw==",
+  "dgSpecHash": "grsuM01SKJUrkiMNVsswnwW0dAgc9B6yuS7+6PWgxewecyf6rB/OXWcNfpb2iJDcL1lebFM58szTAISvFcHrwQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\Web.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Nodirbek\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\Nodirbek\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Nodirbek\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",

@@ -53,9 +53,23 @@ body {
     margin: 0 10px;
 }
 
-.badgee {
-    background-color: deepskyblue;
-    padding: 5px 8px;
-    border-radius: 16px;
-    color: black;
+.form-class {
+    margin: 20px auto;
+    width: 85%;
+    padding: 30px;
+    background-color: rgb(225, 225, 225);
+    border-radius: 12px;
+}
+
+.container h2 {
+    text-align: center;
+}
+
+.category {
+    margin: 20px 0;
+}
+
+.form-btns a, button {
+    margin: 0 15px;
+    width: 120px;
 }

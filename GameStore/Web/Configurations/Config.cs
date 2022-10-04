@@ -6,6 +6,7 @@ using DataLayer.Data;
 using DataLayer.Interfaces;
 using DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Web.Services;
 
 namespace Web.Configurations
 {
@@ -25,6 +26,7 @@ namespace Web.Configurations
             builder.Services.AddSingleton(mapper);
 
             // Add repositories and services to AppService collection
+            builder.Services.AddScoped<IFileService, FileService>();
             builder.Services.AddScoped<IGameInterface, GameRepository>();
             builder.Services.AddScoped<IGameCategoryInterface, GameCategoryRepository>();
             builder.Services.AddScoped<IGameCategoryService, GameCategoryService>();
