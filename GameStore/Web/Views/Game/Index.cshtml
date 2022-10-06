@@ -5,7 +5,7 @@
 @model GameFilterViewModel
 
 <form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
-    <input asp-for="Name" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
+    <input asp-for="Name" minlength="3" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
     <div class="input-group mx-3" style="width: 150px;">
         <select asp-for="Sort" class="form-select" id="inputGroupSelect03" aria-label="Example select with button addon">
             <option selected disabled value="0">Sort by...</option>
@@ -16,19 +16,19 @@
     </div>
     <button class="btn btn-primary" type="submit">Search</button>
 </form>
-@*<div class="m-3">
+<div class="m-3">
     <h4>Game categories</h4>
     <div class="d-flex flex-wrap align-items-md-start categories">
         @foreach (var category in Model.Categories)
         {
             <div>
-                <a class="btn btn-outline-primary mb-2">
+                <a asp-controller="game" asp-action="category" asp-route-categoryId="@category.Id" class="btn btn-outline-primary mb-2" style="width: 120px;">
                     @category.Name
                 </a>
             </div>
         }
     </div>
-</div>*@
+</div>
 
 <div class="row mt-3 mx-2">
 
@@ -48,9 +48,15 @@
                             @{
                                 var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";
                             }
-                            <h3 class="card-title">@gamePrice</h3>
+                            <div class="cardt">
+                                <h3 class="card-title">$ @gamePrice</h3>
+                                <div class="links">
+                                    <a asp-controller="game" asp-action="edit" asp-route-id="@game.Id">🖋</a>
+                                    <a asp-controller="game" asp-action="delete" asp-route-id="@game.Id">🗑</a>
+                                </div>
+                            </div>
                             <h5 class="card-text">@game.Name</h5>
-                            <p class="card-text"><small>@string.Join(" / ", game.Categories)</small></p>
+                            <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
                             <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>
                         </div>
                     </a>

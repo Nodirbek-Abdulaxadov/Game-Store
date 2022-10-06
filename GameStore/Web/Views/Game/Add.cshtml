@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Add new game page";
+}
+@model AddGameViewModel
+
+<div class="container mt-4">
+    <h2>Add new game</h2>
+    <form class="form-class" asp-controller="game" asp-action="add" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label class="form-label">Name</label>
+            <input asp-for="Name" type="text" class="form-control" placeholder="Enter game name">
+            <span class="text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input asp-for="Price" type="text" class="form-control" value="0">
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Select game image</label>
+            <input asp-for="ImageFile" class="form-control" type="file" accept="image/*">
+            <span class="text-danger" asp-validation-for="ImageFile"></span>
+        </div>
+        <div class="category">
+            <h6>Select game categories</h6>
+            <div class="form-check form-check-inline">
+                @for (int i = 0; i < Model.SelectedCategories.Count(); i++)
+                {
+                    <div>
+                        @Html.HiddenFor(x => x.SelectedCategories[i].Name)
+                        @Html.CheckBoxFor(x => x.SelectedCategories[i].IsChecked)
+                        @Html.LabelFor(x => x.SelectedCategories[i].IsChecked, Model.SelectedCategories[i].Name)
+                    </div>
+                }
+                @*<input class="form-check-input" type="checkbox" value="option1">
+                <label class="form-check-label" for="inlineCheckbox1">Action</label>*@
+            </div>
+            <span class="text-danger" asp-validation-for="SelectedCategories"></span>
+        </div>
+        <span></span>
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+            <span class="text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="form-btns d-flex justify-content-center">
+            <a asp-controller="game" asp-action="index" class="btn btn-secondary">
+                Cancel
+            </a>
+            <button type="submit" class="btn btn-success">
+                Save
+            </button>
+        </div>
+    </form>
+</div>

@@ -8,7 +8,7 @@ namespace DataLayer.Interfaces
 
         Task<TEntity?> GetByIdAsync(int id);
 
-        Task AddAsync(TEntity entity);
+        Task<TEntity> AddAsync(TEntity entity);
 
         void Delete(TEntity entity);
 

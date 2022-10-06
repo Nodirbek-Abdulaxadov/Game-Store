@@ -9,8 +9,12 @@ namespace DataLayer.Data
             Categories = new List<GameCategory>()
             {
                 new GameCategory() { Name = "Advanture"},
-                new GameCategory() { Name = "Race"},
-                new GameCategory() { Name = "Strategy"}
+                new GameCategory() { Name = "Races"},
+                new GameCategory() { Name = "Strategy"},
+                new GameCategory() { Name = "Rpg"},
+                new GameCategory() { Name = "Action"},
+                new GameCategory() { Name = "Puzzle & skill"},
+                new GameCategory() { Name = "Other"}
             };
 
             Games = new List<Game>()
