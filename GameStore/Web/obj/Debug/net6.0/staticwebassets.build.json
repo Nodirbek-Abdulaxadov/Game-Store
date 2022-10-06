@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "wxvTqd9RxGsQfD7cz0EDepvkzXj28nXXw3ORgouQpfs=",
+  "Hash": "L1pO5LYwDyGiiWJ/ykbPxOQNXgGEatB74v4gl2bOJkc=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -865,6 +865,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\74adc21a-71f1-46b2-868d-964e11b15012_8.jpg",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/74adc21a-71f1-46b2-868d-964e11b15012_8.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\74adc21a-71f1-46b2-868d-964e11b15012_8.jpg"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",

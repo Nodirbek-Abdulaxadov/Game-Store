@@ -73,3 +73,20 @@ body {
     margin: 0 15px;
     width: 120px;
 }
+
+.cardt {
+    display: flex;
+    justify-content: space-between;
+}
+
+.links a {
+    text-decoration: none;
+    background-color: white;
+    font-size: 26px;
+    border-radius: 7px;
+    margin: 5px;
+}
+
+    .links a:hover {
+        background-color: rgb(0, 214, 25);
+    }

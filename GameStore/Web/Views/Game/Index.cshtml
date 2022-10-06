@@ -48,7 +48,13 @@
                             @{
                                 var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";
                             }
-                            <h3 class="card-title">@gamePrice</h3>
+                            <div class="cardt">
+                                <h3 class="card-title">$ @gamePrice</h3>
+                                <div class="links">
+                                    <a asp-controller="game" asp-action="edit" asp-route-id="@game.Id">🖋</a>
+                                    <a asp-controller="game" asp-action="delete" asp-route-id="@game.Id">🗑</a>
+                                </div>
+                            </div>
                             <h5 class="card-text">@game.Name</h5>
                             <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
                             <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>

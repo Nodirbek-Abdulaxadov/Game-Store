@@ -98,6 +98,33 @@ namespace Web.Controllers
             return View(model);
         }
 
+        public async Task<IActionResult> Edit(int id)
+        {
+            var game = await _gameService.GetGameByIdAsync(id);
+            var categories = await _categoryService.GetAllGameCategoriesAsync();
+            List<CategorySelect> categorySelects = new List<CategorySelect>();
+            foreach (var c in categories)
+            {
+                bool exist = false;
+                if (game.Categories.Any(i => i.Name == c.Name))
+                {
+                    exist = true;
+                }
+                categorySelects.Add(new CategorySelect() { Name = c.Name, IsChecked = exist });
+            }
+
+            var editModel = new EditGameViewModel()
+            {
+                Id = game.Id,
+                Name = game.Name,
+                Description = game.Description,
+                ImagePath = game.ImagePath,
+                Price = game.Price,
+                SelectedCategories = categorySelects
+            };
+            return View(game);
+        }
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
