@@ -5,5 +5,7 @@ namespace DataLayer.Interfaces
     {
         Task<IEnumerable<Game>> GetAllGamesWithCategories();
         Task<Game> GetByIdWithCategories(int id);
+        Task<Game> UpdateGameAsync(Game game);
+        Task RemoveMMs(int id);
     }
 }

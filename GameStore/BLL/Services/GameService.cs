@@ -93,5 +93,24 @@ namespace BLL.Services
             => (await _unitOfWork.Games.GetAllGamesWithCategories())
                                        .Where(g => g.Categories.Any(i => i.CategoryId == categoryId))
                                        .Select(i => _mapper.Map<GameModel>(i));
+
+        public async Task<GameModel> UpdateGame(GameModel gameModel)
+        {
+            var result = await _unitOfWork.Games.UpdateGameAsync(_mapper.Map<Game>(gameModel));
+            await _unitOfWork.SaveAsync();
+            return _mapper.Map<GameModel>(result);
+        }
+
+        public async Task<IEnumerable<GameModel>> GetAllGamesAsync()
+            => (await _unitOfWork.Games.GetAllAsync())
+                                 .Select(g => _mapper.Map<GameModel>(g));
+
+        public async Task Delete(GameModel game)
+        {
+            await _unitOfWork.Games.RemoveMMs(game.Id);
+            await _unitOfWork.SaveAsync();  
+            await _unitOfWork.Games.DeleteByIdAsync(game.Id);
+            await _unitOfWork.SaveAsync();
+        }
     }
 }

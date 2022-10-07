@@ -31,7 +31,10 @@ namespace DataLayer.Repositories
         public async Task<TEntity?> GetByIdAsync(int id)
             => await dbContext.Set<TEntity>().FirstOrDefaultAsync(x => x.Id == id);
 
-        public void Update(TEntity entity)
-            => dbContext.Set<TEntity>().Update(entity);
+        public TEntity Update(TEntity entity)
+        {
+            dbContext.Set<TEntity>().Update(entity);
+            return entity;
+        }
     }
 }

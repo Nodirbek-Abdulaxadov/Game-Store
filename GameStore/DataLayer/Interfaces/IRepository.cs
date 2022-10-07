@@ -14,6 +14,6 @@ namespace DataLayer.Interfaces
 
         Task DeleteByIdAsync(int id);
 
-        void Update(TEntity entity);
+        TEntity Update(TEntity entity);
     }
 }

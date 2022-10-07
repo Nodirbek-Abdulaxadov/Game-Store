@@ -29,7 +29,7 @@
         {
             if (fileName != null)
             {
-                string uplodFolder = Path.Combine(_environment.WebRootPath, "images");
+                string uplodFolder = _environment.WebRootPath;
                 string filePath = Path.Combine(uplodFolder, fileName);
                 FileInfo fileInfo = new FileInfo(filePath);
                 if (fileInfo.Exists)

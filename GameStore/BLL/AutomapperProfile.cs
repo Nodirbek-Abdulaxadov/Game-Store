@@ -18,6 +18,7 @@ namespace BLL
                     Id = c.Category.Id,
                     Name = c.Category.Name
                 })));
+
             CreateMap<GameModel, Game>()
                    .ForMember(rm => rm.Categories, r => r.MapFrom(i => i.Categories.Select(c => new CategoryGame()
                    {

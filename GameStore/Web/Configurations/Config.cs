@@ -27,15 +27,18 @@ namespace Web.Configurations
 
             // Add repositories and services to AppService collection
             builder.Services.AddScoped<IFileService, FileService>();
-            builder.Services.AddScoped<IGameInterface, GameRepository>();
-            builder.Services.AddScoped<IGameCategoryInterface, GameCategoryRepository>();
-            builder.Services.AddScoped<IGameCategoryService, GameCategoryService>();
+            builder.Services.AddTransient<IGameInterface, GameRepository>();
+            builder.Services.AddTransient<IGameCategoryInterface, GameCategoryRepository>();
+            builder.Services.AddTransient<IGameCategoryService, GameCategoryService>();
             builder.Services.AddTransient<IGameService, GameService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             // Add Application Database Context
-            builder.Services.AddDbContext<GameStoreDBContext>(options => 
-                        options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDB")));
+            builder.Services.AddDbContext<GameStoreDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDB"));
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
         }
 
         public static void AddMiddlewares(this WebApplication app)

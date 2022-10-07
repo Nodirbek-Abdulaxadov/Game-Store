@@ -85,6 +85,12 @@ namespace Web.Controllers
                     return View(viewModel);
                 }
 
+                if (!viewModel.SelectedCategories.Any(i => i.IsChecked == true))
+                {
+                    ModelState.AddModelError(nameof(viewModel.SelectedCategories), "You must select at last one category!");
+                    return View(viewModel);
+                }
+
                 var result = await _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
                                                         _fileService.UploadImage(viewModel.ImageFile), viewModel.SelectedCategories.Where(c => c.IsChecked == true).Select(i => i.Name).ToList());
                 return RedirectToAction("gamedetail", result);
@@ -98,6 +104,7 @@ namespace Web.Controllers
             return View(model);
         }
 
+        [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
             var game = await _gameService.GetGameByIdAsync(id);
@@ -122,7 +129,63 @@ namespace Web.Controllers
                 Price = game.Price,
                 SelectedCategories = categorySelects
             };
-            return View(game);
+            return View(editModel);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditGameViewModel viewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                if (await _gameService.Exist(viewModel.Name) && 
+                   (await _gameService.GetAllGamesAsync()).Count(i => i.Name == viewModel.Name) > 1)
+                {
+                    ModelState.AddModelError(nameof(viewModel.Name), "This name already exist!");
+                    return View(viewModel);
+                }
+
+                if (!viewModel.SelectedCategories.Any(i => i.IsChecked == true))
+                {
+                    ModelState.AddModelError(nameof(viewModel.SelectedCategories), "You must select at last one category!");
+                    return View(viewModel);
+                }
+
+                if (viewModel.ImageFile != null)
+                {
+                    _fileService.DeleteImage(viewModel.ImagePath);
+                    viewModel.ImagePath = _fileService.UploadImage(viewModel.ImageFile);
+                }
+
+                var categories = (await _categoryService.GetAllGameCategoriesAsync())
+                                                        .Where(i => viewModel.SelectedCategories
+                                                        .Any(m => m.Name == i.Name && m.IsChecked == true))
+                                                        .ToList();
+
+                var game = new GameModel()
+                {
+                    Id = viewModel.Id,
+                    Name = viewModel.Name,
+                    Price = viewModel.Price,
+                    Description = viewModel.Description,
+                    ImagePath = viewModel.ImagePath,
+                    Categories = categories
+                };
+
+                game = await _gameService.UpdateGame(game);
+
+                return RedirectToAction("GameDetail", game);
+            }
+
+            return View(viewModel);
+        }
+
+        public async Task<IActionResult> Delete(int id)
+        {
+            var game = await _gameService.GetGameByIdAsync(id);
+            _fileService.DeleteImage(game.ImagePath);
+            await _gameService.Delete(game);
+
+            return RedirectToAction("index");
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

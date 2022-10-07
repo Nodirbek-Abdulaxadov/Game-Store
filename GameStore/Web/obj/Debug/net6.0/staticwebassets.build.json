@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "L1pO5LYwDyGiiWJ/ykbPxOQNXgGEatB74v4gl2bOJkc=",
+  "Hash": "PFhIcPI1iJ2gZ5mg0YENi3DZQ/W0FDkyf0QqoBr/ukg=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -850,12 +850,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\979661bb-449f-483c-b17a-476977a02d72_photo_2022-06-14_15-03-22.jpg",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg",
+      "RelativePath": "images/979661bb-449f-483c-b17a-476977a02d72_photo_2022-06-14_15-03-22.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -864,15 +864,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\3c00ac5a-2622-47f2-8cfc-4758dcbb3619_6.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\979661bb-449f-483c-b17a-476977a02d72_photo_2022-06-14_15-03-22.jpg"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\74adc21a-71f1-46b2-868d-964e11b15012_8.jpg",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\ba2622f7-cc49-47f8-9696-b39b0c18a51d_carbon.png",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/74adc21a-71f1-46b2-868d-964e11b15012_8.jpg",
+      "RelativePath": "images/ba2622f7-cc49-47f8-9696-b39b0c18a51d_carbon.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -881,7 +881,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\74adc21a-71f1-46b2-868d-964e11b15012_8.jpg"
+      "OriginalItemSpec": "wwwroot\\images\\ba2622f7-cc49-47f8-9696-b39b0c18a51d_carbon.png"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",

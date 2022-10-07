@@ -41,25 +41,28 @@
         @foreach (var game in Model.PagedGames)
         {
             <div class="col-md-4 p-2">
-                <div class="card text-bg-dark">
+                <div id="somee" class="card text-bg-dark">
                     <img src="~/@game.ImagePath" class="card-img cardimg" alt="...">
-                    <a asp-controller="game" asp-action="gamedetail" asp-route-id="@game.Id" class="game-link">
-                        <div class="card-img-overlay card-div">
+                    <div class="card-img-overlay card-div">
                             @{
-                                var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";
+                                var gamePrice = game.Price == 0 ? "Free" : $"{game.Price}";
                             }
+                        <div class="d-flex justify-content-between">
+                            <h3 class="card-title" style="color: white !important;">$ @gamePrice</h3>
                             <div class="cardt">
-                                <h3 class="card-title">$ @gamePrice</h3>
                                 <div class="links">
                                     <a asp-controller="game" asp-action="edit" asp-route-id="@game.Id">🖋</a>
-                                    <a asp-controller="game" asp-action="delete" asp-route-id="@game.Id">🗑</a>
+                                    <a asp-controller="game" asp-action="delete" asp-route-id="@game.Id" 
+                                            onclick="return confirm('Are you sure delete this Game?')">🗑</a>
                                 </div>
                             </div>
+                        </div>
+                        <a asp-controller="game" asp-action="gamedetail" asp-route-id="@game.Id" class="game-link">
                             <h5 class="card-text">@game.Name</h5>
                             <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
-                            <p style="margin-top: -15px; float: right;">@game.Sold Sold</p>
+                            <p style="margin-top: -20px; float: right;">@game.Sold Sold</p>
+                        </a>
                         </div>
-                    </a>
                 </div>
             </div>
         }
@@ -106,3 +109,14 @@
         </ul>
     </nav>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $("#somee").hover(function () {
+            $(".open-close").setAttribute("style", "display:block;");
+        },
+            function () {
+                $(".open-close").setAttribute("style", "display:none;");
+            });
+    });
+</script>
