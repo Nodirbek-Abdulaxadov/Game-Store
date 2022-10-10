@@ -51,9 +51,9 @@
                             <h3 class="card-title" style="color: white !important;">$ @gamePrice</h3>
                             <div class="cardt">
                                 <div class="links">
-                                    <a asp-controller="game" asp-action="edit" asp-route-id="@game.Id">🖋</a>
-                                    <a asp-controller="game" asp-action="delete" asp-route-id="@game.Id" 
-                                            onclick="return confirm('Are you sure delete this Game?')">🗑</a>
+                                    <a asp-controller="game" id="edit" asp-action="edit" asp-route-id="@game.Id"><i class="las la-edit"></i></a>
+                                    <a asp-controller="game" id="delete" asp-action="delete" asp-route-id="@game.Id"
+                               onclick="return confirm('Are you sure delete this Game?')"><i class="las la-trash"></i></a>
                                 </div>
                             </div>
                         </div>

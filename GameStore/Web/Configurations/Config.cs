@@ -6,6 +6,8 @@ using DataLayer.Data;
 using DataLayer.Interfaces;
 using DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Web.Areas.Identity.Data;
+using Web.Data;
 using Web.Services;
 
 namespace Web.Configurations
@@ -33,10 +35,19 @@ namespace Web.Configurations
             builder.Services.AddTransient<IGameService, GameService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
+
+            var connectionString = builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
+
+            builder.Services.AddDbContext<WebContext>(options =>
+                options.UseSqlServer(connectionString));
+
+            builder.Services.AddDefaultIdentity<WebUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<WebContext>();
+
             // Add Application Database Context
             builder.Services.AddDbContext<GameStoreDBContext>(options =>
             {
-                options.UseSqlServer(builder.Configuration.GetConnectionString("LocalDB"));
+                options.UseSqlServer(connectionString);
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
         }
@@ -48,8 +59,10 @@ namespace Web.Configurations
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
+            app.MapRazorPages();
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Game}/{action=Index}/{id?}");

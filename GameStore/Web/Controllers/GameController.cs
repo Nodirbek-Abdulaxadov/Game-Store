@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using Web.Models;
@@ -63,6 +64,7 @@ namespace Web.Controllers
             return View(game);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -74,6 +76,7 @@ namespace Web.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(AddGameViewModel viewModel)
         {
@@ -104,6 +107,7 @@ namespace Web.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -124,14 +128,15 @@ namespace Web.Controllers
             {
                 Id = game.Id,
                 Name = game.Name,
-                Description = game.Description,
-                ImagePath = game.ImagePath,
+                Description = game.Description ?? "",
+                ImagePath = game.ImagePath ?? "",
                 Price = game.Price,
                 SelectedCategories = categorySelects
             };
             return View(editModel);
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Edit(EditGameViewModel viewModel)
         {
@@ -179,6 +184,7 @@ namespace Web.Controllers
             return View(viewModel);
         }
 
+        [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
             var game = await _gameService.GetGameByIdAsync(id);
