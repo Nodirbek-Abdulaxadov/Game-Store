@@ -10,8 +10,14 @@
     <li class="nav-item">
             <div class="dropdown">
                 <a class="username dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    <img src="~/images/pubg.jpg" class="avatar me-3"/>
-                    @UserManager.GetUserName(User)!
+                    @{
+                        var user = await UserManager.GetUserAsync(User);
+                        var imagePath = user.AvataraPath ?? "images/user.png";
+                    }
+
+
+                    <img src="~/@imagePath" class="avatar me-3" />                    
+                    @user.FirstName @user.LastName
                 </a>
 
                 <ul class="dropdown-menu">

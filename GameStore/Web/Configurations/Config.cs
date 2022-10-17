@@ -6,6 +6,7 @@ using DataLayer.Data;
 using DataLayer.Interfaces;
 using DataLayer.Repositories;
 using Microsoft.EntityFrameworkCore;
+using Web.Areas.Identity;
 using Web.Areas.Identity.Data;
 using Web.Data;
 using Web.Services;
@@ -35,6 +36,7 @@ namespace Web.Configurations
             builder.Services.AddTransient<IGameService, GameService>();
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
+            builder.Services.AddTransient<IUserService, UserService>();
 
             var connectionString = builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
 

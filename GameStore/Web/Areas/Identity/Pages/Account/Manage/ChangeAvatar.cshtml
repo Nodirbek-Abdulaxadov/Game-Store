@@ -1,0 +1,31 @@
+﻿@page
+@model ChangeAvatarModel
+@{
+    ViewData["Title"] = "Change Avatar image";
+    ViewData["ActivePage"] = ManageNavPages.ChangeAvatar;
+}
+
+<h3>@ViewData["Title"]</h3>
+<div class="row">
+    <div class="col-md-6">
+        <form id="change-password-form" method="post" enctype="multipart/form-data">
+            <div class="mb-3">
+                <div class="d-flex justify-content-start mb-4">
+                    @{
+                        string path = Model.ImagePath;
+                    }
+                    <input type="hidden" value="ImagePath" asp-for="ImagePath" />
+                    <img src="~/@path" class="detail-img" style="width: 200px;" alt="">
+                </div>
+                <label class="form-label">Select game image</label>
+                <input asp-for="Input.ImageFile" class="form-control" type="file" accept="image/*">
+                <span class="text-danger" asp-validation-for="Input.ImageFile"></span>
+            </div>
+            <div class="form-btns d-flex justify-content-center">
+                <button type="submit" class="btn btn-success">
+                    Save
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

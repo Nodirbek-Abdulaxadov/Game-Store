@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dg5QYK71ZVbccpsW0XshxprsthpJUNpW6JwBYnrMavg=",
+  "Hash": "fxVlxGmadv10+bI4TRUICrGwFVqFkZYa3QRXXfocZRU=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1936,6 +1936,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\race.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\user.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/user.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\user.png"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\js\\site.js",
