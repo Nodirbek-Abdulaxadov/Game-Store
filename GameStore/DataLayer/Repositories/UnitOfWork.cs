@@ -9,15 +9,19 @@ namespace DataLayer.Repositories
 
         public UnitOfWork(GameStoreDBContext dbcontext,
                            IGameCategoryInterface gameCategoryInterface,
-                           IGameInterface gameInterface)
+                           IGameInterface gameInterface,
+                           ICommentInterface comments)
         {
             _dbcontext = dbcontext;
             GameCategories = gameCategoryInterface;
             Games = gameInterface;
+            Comments = comments;
         }
         public IGameCategoryInterface GameCategories { get; }
 
         public IGameInterface Games { get; }
+
+        public ICommentInterface Comments { get; }
 
         public void Dispose()
         {

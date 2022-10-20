@@ -37,6 +37,8 @@ namespace Web.Configurations
             builder.Services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             builder.Services.AddTransient<IUserService, UserService>();
+            builder.Services.AddTransient<ICommentInterface, CommentRepository>();
+            builder.Services.AddTransient<ICommentService, CommentService>();
 
             var connectionString = builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
 

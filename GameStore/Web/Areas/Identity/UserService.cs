@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Web.Areas.Identity.Data;
 using Web.Data;
@@ -33,6 +34,10 @@ namespace Web.Areas.Identity
             try
             {
                 var res = webContext.Users.FirstOrDefault(i => i.Id == user.Id);
+                if (!string.IsNullOrEmpty(res.AvataraPath))
+                {
+                    fileService.DeleteImage(res.AvataraPath);
+                }
                 res.AvataraPath = fileService.UploadImage(file);
                 webContext.SaveChanges();
                 return Task.FromResult(true);
@@ -41,6 +46,13 @@ namespace Web.Areas.Identity
             {
                 return Task.FromResult(false);
             }
+        }
+
+        public async Task<WebUser> GetUserAsync(string id)
+        {
+            var user = await webContext.Users.FirstOrDefaultAsync(i => i.Id == id);
+
+            return user;
         }
     }
 }

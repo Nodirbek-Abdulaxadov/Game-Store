@@ -13,15 +13,18 @@ namespace Web.Controllers
         private readonly IGameService _gameService;
         private readonly IFileService _fileService;
         private readonly IGameCategoryService _categoryService;
+        private readonly ICommentService _commentService;
         private int pageSize = 6;
 
         public GameController(IGameService gameService,
                               IFileService fileService,
-                              IGameCategoryService categoryService)
+                              IGameCategoryService categoryService,
+                              ICommentService commentService)
         {
             _gameService = gameService;
             _fileService = fileService;
             _categoryService = categoryService;
+            _commentService = commentService;
         }
 
         public async Task<IActionResult> Index(GameFilterViewModel viewModel)
@@ -61,6 +64,7 @@ namespace Web.Controllers
         public async Task<IActionResult> GameDetail(int id)
         {
             var game = await _gameService.GetGameByIdAsync(id);
+            var list = await _commentService.GetGameComments(id);
             return View(game);
         }
 

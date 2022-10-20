@@ -4,7 +4,7 @@
     {
         IGameCategoryInterface GameCategories { get; }
         IGameInterface Games { get; }
-
+        ICommentInterface Comments { get; }
         Task SaveAsync();
     }
 }

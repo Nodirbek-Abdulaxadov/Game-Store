@@ -128,3 +128,33 @@ body {
 .form-floating {
     margin: 15px 0;
 }
+
+
+.comment-user img {
+    height: 65px;
+    width: 65px;
+    object-fit: cover;
+    margin: 0 10px;
+    border: 1px solid rgb(77, 77, 77);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.p1 {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.p2 {
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.reply {
+    margin-left: 100px;
+}
+
+.comment-user i {
+    font-size: 26px;
+    margin-left: 10px;
+}
