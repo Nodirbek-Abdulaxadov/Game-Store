@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "ACH60hs5nHXpZefIVRNp2clgrYb9r//j5bDInv5sBMc=",
+  "Hash": "IXT42PXUf693OBwYi4BVm4+j0moP57eKU7+e7VSyGjo=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1870,12 +1870,12 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\410d7a21-caaa-420a-b8d5-5b8a04a71b9c_uz.png",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\0908b956-844f-49fd-b798-d0ac676ae31e_Taklifnoma.jpg",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/410d7a21-caaa-420a-b8d5-5b8a04a71b9c_uz.png",
+      "RelativePath": "images/0908b956-844f-49fd-b798-d0ac676ae31e_Taklifnoma.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1884,15 +1884,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\410d7a21-caaa-420a-b8d5-5b8a04a71b9c_uz.png"
+      "OriginalItemSpec": "wwwroot\\images\\0908b956-844f-49fd-b798-d0ac676ae31e_Taklifnoma.jpg"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\9df0dc5c-a99c-4d5c-9304-b7d5d186cd41_,e 1.png",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\0e312982-311a-41ac-a780-dc46ee78d71b_,e 1.png",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/9df0dc5c-a99c-4d5c-9304-b7d5d186cd41_,e 1.png",
+      "RelativePath": "images/0e312982-311a-41ac-a780-dc46ee78d71b_,e 1.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1901,15 +1901,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\9df0dc5c-a99c-4d5c-9304-b7d5d186cd41_,e 1.png"
+      "OriginalItemSpec": "wwwroot\\images\\0e312982-311a-41ac-a780-dc46ee78d71b_,e 1.png"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\bf7245e5-d7bc-4412-83d3-936b47f472bb_,e 1.png",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\454e73d6-1440-420d-b465-ae44aa0c3589_Counter-Strike_Source_(box_art).jpg",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/bf7245e5-d7bc-4412-83d3-936b47f472bb_,e 1.png",
+      "RelativePath": "images/454e73d6-1440-420d-b465-ae44aa0c3589_Counter-Strike_Source_(box_art).jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1918,15 +1918,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\bf7245e5-d7bc-4412-83d3-936b47f472bb_,e 1.png"
+      "OriginalItemSpec": "wwwroot\\images\\454e73d6-1440-420d-b465-ae44aa0c3589_Counter-Strike_Source_(box_art).jpg"
     },
     {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\c491f391-9826-4eb5-b37f-cde9e732ff0f_uz.png",
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",
       "SourceId": "Web",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
       "BasePath": "_content/Web",
-      "RelativePath": "images/c491f391-9826-4eb5-b37f-cde9e732ff0f_uz.png",
+      "RelativePath": "images/big.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1935,58 +1935,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\c491f391-9826-4eb5-b37f-cde9e732ff0f_uz.png"
-    },
-    {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\d0b4a35e-481a-4f51-b802-f67c0a53b1c9_,e 1.png",
-      "SourceId": "Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
-      "BasePath": "_content/Web",
-      "RelativePath": "images/d0b4a35e-481a-4f51-b802-f67c0a53b1c9_,e 1.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\d0b4a35e-481a-4f51-b802-f67c0a53b1c9_,e 1.png"
-    },
-    {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\e8a09f9c-4ea7-414d-a7cf-566eccf7873a_photo_2022-06-09_03-25-56.jpg",
-      "SourceId": "Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
-      "BasePath": "_content/Web",
-      "RelativePath": "images/e8a09f9c-4ea7-414d-a7cf-566eccf7873a_photo_2022-06-09_03-25-56.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\e8a09f9c-4ea7-414d-a7cf-566eccf7873a_photo_2022-06-09_03-25-56.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\e9374ecd-cf0e-47a0-98dc-0b570d70dc05_uz.png",
-      "SourceId": "Web",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
-      "BasePath": "_content/Web",
-      "RelativePath": "images/e9374ecd-cf0e-47a0-98dc-0b570d70dc05_uz.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\e9374ecd-cf0e-47a0-98dc-0b570d70dc05_uz.png"
+      "OriginalItemSpec": "wwwroot\\images\\big.jpg"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\logo.png",
@@ -2004,6 +1953,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\pubg.jpg",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/pubg.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\pubg.jpg"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\race.jpg",
