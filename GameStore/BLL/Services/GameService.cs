@@ -16,12 +16,15 @@ namespace BLL.Services
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMapper _mapper;
+        private readonly ICommentService _commentService;
 
         public GameService(IUnitOfWork unitOfWork,
-                           IMapper mapper)
+                           IMapper mapper,
+                           ICommentService commentService)
         {
             _unitOfWork = unitOfWork;
             _mapper = mapper;
+            _commentService = commentService;
         }
         public async Task<IEnumerable<GameModel>> GetAllGamesByNameAsync(string? name, SortType sort)
         {
@@ -105,8 +108,13 @@ namespace BLL.Services
             => (await _unitOfWork.Games.GetAllAsync())
                                  .Select(g => _mapper.Map<GameModel>(g));
 
-        public async Task Delete(GameModel game)
+        public async Task Delete(GameModel game, IEnumerable<UserModel>? users)
         {
+            var gameComments = await _commentService.GetGameComments(game.Id, users);
+            foreach (var comment in gameComments)
+            {
+                await _commentService.DeleteGeneralAsync(comment.Id);
+            }
             await _unitOfWork.Games.RemoveMMs(game.Id);
             await _unitOfWork.SaveAsync();  
             await _unitOfWork.Games.DeleteByIdAsync(game.Id);

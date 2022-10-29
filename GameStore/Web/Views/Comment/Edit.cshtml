@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Edit page";
+}
+
+@model EditCommentViewModel
+
+<form method="post" asp-controller="comment" asp-action="edit">
+    <div class="mb-3">
+        <input type="hidden" value="@Model.GameId" asp-for="GameId" />
+        <input type="hidden" value="@Model.UserId" asp-for="UserId" />
+        <input type="hidden" value="@Model.CommentId" asp-for="CommentId" />
+        <label class="form-label">Leave comment</label>
+        <textarea asp-for="CommentText" class="form-control" rows="3">@Model.CommentText</textarea>
+        <span></span>
+    </div>
+    <a asp-controller="game" asp-action="index" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

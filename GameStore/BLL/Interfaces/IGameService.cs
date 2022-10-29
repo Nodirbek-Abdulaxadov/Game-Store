@@ -11,7 +11,7 @@ namespace BLL.Interfaces
         Task<GameModel> GetGameByIdAsync(int id);
         Task<GameModel> AddGameAsync(string name, string description, decimal price, string imagePath, List<string> categories);
         Task<GameModel> UpdateGame(GameModel gameModel);
-        Task Delete(GameModel game);
+        Task Delete(GameModel game, IEnumerable<UserModel>? users);
         Task<bool> Exist(string name);
     }
 }

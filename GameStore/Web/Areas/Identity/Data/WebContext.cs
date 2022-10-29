@@ -10,7 +10,7 @@ public class WebContext : IdentityDbContext<WebUser>
     public WebContext(DbContextOptions<WebContext> options)
         : base(options)
     {
-        Database.EnsureCreated();
+        
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

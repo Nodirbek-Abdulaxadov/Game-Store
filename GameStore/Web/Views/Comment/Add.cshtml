@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Reply page";
+}
+
+@model AddReplyViewModel
+
+<form method="post" asp-controller="comment" asp-action="add">
+    <div class="mb-3">
+        <input type="hidden" value="@Model.GameId" asp-for="GameId" />
+        <input type="hidden" value="@Model.UserId" asp-for="UserId" />
+        <input type="hidden" value="@Model.CommentId" asp-for="CommentId" />
+        <label class="form-label">Leave comment</label>
+        <textarea asp-for="Text" class="form-control" rows="3"></textarea>
+        <span></span>
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

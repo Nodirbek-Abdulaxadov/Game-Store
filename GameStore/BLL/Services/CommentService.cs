@@ -39,6 +39,7 @@ namespace BLL.Services
                 GameId = gameId,
                 UserId = userId,
                 IsEdited = false,
+                IsDeleted = false,
                 RepliedCommentId = commentId,
                 CommentedTime = DateTime.Now
             };
@@ -48,40 +49,90 @@ namespace BLL.Services
             return gameId;
         }
 
-        public Task DeleteCommentAsync(int commentId)
+        public async Task DeleteCommentAsync(int commentId)
         {
-            throw new NotImplementedException();
+            var comment = await _unitOfWork.Comments.GetByIdAsync(commentId);
+            comment.IsDeleted = true;
+            comment = _unitOfWork.Comments.Update(comment);
+            await _unitOfWork.SaveAsync();
         }
 
-        public Task<int> EditCommentAsync(CommentModel comment, string userId)
+        public async Task DeleteGeneralAsync(int commentId)
         {
-            throw new NotImplementedException();
+            await _unitOfWork.Comments.DeleteByIdAsync(commentId);
+            await _unitOfWork.SaveAsync();
+            var replies = (await _unitOfWork.Comments.GetAllAsync()).Where(c => c.RepliedCommentId == commentId);
+            foreach (var reply in replies)
+            {
+                await _unitOfWork.Comments.DeleteByIdAsync(reply.Id);
+                await _unitOfWork.SaveAsync();
+            }
         }
 
-        public async Task<IEnumerable<CommentModel>> GetGameComments(int gameId)
+        public async Task<int> EditCommentAsync(string text, int commentId)
+        {
+            var comment = await _unitOfWork.Comments.GetByIdAsync(commentId);
+            comment.Body = text;
+            comment.IsEdited = true;
+            comment.CommentedTime = DateTime.Now;
+            _unitOfWork.Comments.Update(comment);
+            await _unitOfWork.SaveAsync();
+            return commentId;
+        }
+
+        public async Task<IEnumerable<CommentModel>> GetGameComments(int gameId, IEnumerable<UserModel> users)
         {
             var list = await _unitOfWork.Comments.GetAllAsync();
-            return list.Where(i => i.GameId == gameId)
-                       .Select(c => new CommentModel()
-                       {
-                           Id = c.Id,
-                           Body = c.Body,
-                           CommentedTime = c.CommentedTime,
-                           IsEdited = c.IsEdited,
-                           RepliedComments = (IEnumerable<CommentModel>)GetRepliedCommentsByCommentIdAsync(c.Id)
-                       });
+            List<CommentModel> comments = new List<CommentModel>();
+
+            foreach (var comment in list.Where(g => g.GameId == gameId && g.RepliedCommentId == 0)
+                                        .OrderByDescending(i => i.CommentedTime))
+            {
+                var user = users.FirstOrDefault(i => i.Id == comment.UserId);
+                var replies = await GetRepliedCommentsByCommentIdAsync(comment.Id, users);
+
+                var model = new CommentModel()
+                {
+                    Id = comment.Id,
+                    GameId = comment.GameId,
+                    Body = comment.Body,
+                    CommentedTime = comment.CommentedTime,
+                    IsEdited = comment.IsEdited,
+                    IsDeleted = comment.IsDeleted,
+                    User = user,
+                    RepliedComments = replies
+                };
+
+                comments.Add(model);
+            }
+
+            return comments;
         }
 
-        private async Task<IEnumerable<CommentModel>> GetRepliedCommentsByCommentIdAsync(int commentId)
+        public async Task RestoreCommentAsync(int commentId)
+        {
+            var comment = await _unitOfWork.Comments.GetByIdAsync(commentId);
+            comment.IsDeleted = false;
+            comment = _unitOfWork.Comments.Update(comment);
+            await _unitOfWork.SaveAsync();
+        }
+
+        private async Task<IEnumerable<CommentModel>> GetRepliedCommentsByCommentIdAsync(int commentId, IEnumerable<UserModel> users)
         {
             var list = await _unitOfWork.Comments.GetAllAsync();
             return list.Where(i => i.RepliedCommentId == commentId)
-                       .Select(c => new CommentModel()
+                       .OrderByDescending(i => i.CommentedTime)
+                       .Select(c =>
                        {
-                           Id = c.Id,
-                           Body = c.Body,
-                           CommentedTime = c.CommentedTime,
-                           IsEdited = c.IsEdited
+                           var user = users.FirstOrDefault(i => i.Id == c.UserId);
+                           return new CommentModel()
+                           {
+                               Id = c.Id,
+                               Body = c.Body,
+                               CommentedTime = c.CommentedTime,
+                               IsEdited = c.IsEdited,
+                               User = user
+                           };
                        });
         }
     }

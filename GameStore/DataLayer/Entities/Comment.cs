@@ -7,6 +7,7 @@ namespace DataLayer.Entities
         [Required]
         public string Body { get; set; } = string.Empty;
         public bool IsEdited { get; set; }
+        public bool IsDeleted { get; set; }
         public DateTime CommentedTime { get; set; }
         public int GameId { get; set; }
         public string UserId { get; set; }

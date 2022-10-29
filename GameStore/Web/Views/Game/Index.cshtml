@@ -3,6 +3,12 @@
 }
 
 @model GameFilterViewModel
+@inject UserManager<WebUser> UserManager
+
+@{
+    var userId = UserManager.GetUserId(User);
+}
+
 
 <form asp-controller="game" asp-action="index" class="d-flex m-3" role="search">
     <input asp-for="Name" minlength="3" value="@Model.Name" class="form-control me-2" type="search" placeholder="Search games by name..." aria-label="Search">
@@ -57,7 +63,7 @@
                                 </div>
                             </div>
                         </div>
-                        <a asp-controller="game" asp-action="gamedetail" asp-route-id="@game.Id" class="game-link">
+                        <a asp-controller="game" asp-action="gamedetail" asp-route-gameId="@game.Id" asp-route-userId="@userId" class="game-link">
                             <h5 class="card-text">@game.Name</h5>
                             <p class="card-text"><small>@string.Join(" / ", game.Categories.Select(c => c.Name))</small></p>
                             <p style="margin-top: -20px; float: right;">@game.Sold Sold</p>

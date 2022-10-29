@@ -1,8 +1,12 @@
 ﻿using BLL.Interfaces;
 using BLL.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
+using Web.Areas.Identity.Data;
+using Web.Data;
 using Web.Models;
 using Web.Services;
 
@@ -14,17 +18,20 @@ namespace Web.Controllers
         private readonly IFileService _fileService;
         private readonly IGameCategoryService _categoryService;
         private readonly ICommentService _commentService;
+        private readonly WebContext _userManager;
         private int pageSize = 6;
 
         public GameController(IGameService gameService,
                               IFileService fileService,
                               IGameCategoryService categoryService,
-                              ICommentService commentService)
+                              ICommentService commentService,
+                              WebContext userManager)
         {
             _gameService = gameService;
             _fileService = fileService;
             _categoryService = categoryService;
             _commentService = commentService;
+            _userManager = userManager;
         }
 
         public async Task<IActionResult> Index(GameFilterViewModel viewModel)
@@ -61,11 +68,10 @@ namespace Web.Controllers
             return View(model);
         }
 
-        public async Task<IActionResult> GameDetail(int id)
+        public async Task<IActionResult> GameDetail(int gameId, string? userId)
         {
-            var game = await _gameService.GetGameByIdAsync(id);
-            var list = await _commentService.GetGameComments(id);
-            return View(game);
+            var detailModel = await GetGameDetails(gameId, userId);
+            return View(detailModel);
         }
 
         [Authorize]
@@ -191,17 +197,74 @@ namespace Web.Controllers
         [Authorize]
         public async Task<IActionResult> Delete(int id)
         {
+            var users = _userManager.Users.Select(u => new UserModel()
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                AvatarPath = u.AvataraPath
+            }).AsEnumerable();
+
             var game = await _gameService.GetGameByIdAsync(id);
             _fileService.DeleteImage(game.ImagePath);
-            await _gameService.Delete(game);
+            await _gameService.Delete(game, users);
 
             return RedirectToAction("index");
         }
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
+        [Authorize]
+        public async Task<IActionResult> DeleteComment(int commentId, int gameId, string? userId)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            await _commentService.DeleteCommentAsync(commentId);
+            var model = await GetGameDetails(gameId, userId);
+            return RedirectToAction("GameDetail", model);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> AddComment(GameDetailViewModel model)
+        {
+            var game = await _gameService.GetGameByIdAsync(model.GameId);
+            var users = _userManager.Users.AsEnumerable();
+            var detailModel = await GetGameDetails(model.GameId, model.UserId);
+            if (!(string.IsNullOrEmpty(model.Text)))
+            {
+                var gameId = await _commentService.AddComment(model.Text, model.GameId, model.UserId);
+
+                var list = await _commentService.GetGameComments(gameId, users.Select(u => new UserModel()
+                {
+                    Id = u.Id,
+                    FirstName = u.FirstName,
+                    LastName = u.LastName,
+                    AvatarPath = u.AvataraPath
+                }));
+                return RedirectToAction("GameDetail", detailModel);
+            }
+
+            ViewData["Error"] = "Enter at least 3 letters!";
+            return RedirectToAction("GameDetail", detailModel);
+        }
+
+        private async Task<GameDetailViewModel> GetGameDetails(int gameId, string? userId)
+        {
+            GameModel game = await _gameService.GetGameByIdAsync(gameId);
+            var users = _userManager.Users.AsEnumerable();
+            var list = await _commentService.GetGameComments(gameId, users.Select(u => new UserModel()
+            {
+                Id = u.Id,
+                FirstName = u.FirstName,
+                LastName = u.LastName,
+                AvatarPath = u.AvataraPath
+            }));
+            var detailModel = new GameDetailViewModel()
+            {
+                UserId = userId,
+                GameId = gameId,
+                Game = game,
+                Comments = list.Where(i => i.IsDeleted == false),
+                DeletedComments = list.Any(i => i.User.Id == userId) ? list.Where(i => i.IsDeleted == true && i.User.Id == userId) : null
+            };
+
+            return detailModel;
         }
     }
 }
