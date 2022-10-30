@@ -112,3 +112,80 @@ body {
     font-size: 26px;
     margin-left: 10px;
 }
+
+.cart {
+    text-decoration: none;
+    display: block;
+}
+
+.cart i{
+    font-size: 40px;
+    color: white;
+}
+
+.cart-item-img {
+    width: 100px;
+}
+
+.counter input{
+    width: 40px;
+    text-align: center;
+    border: none;
+}
+
+.counter input:active{
+    border: none;
+}
+.counter input:focus{
+    border: none;
+}
+
+.counter button {
+    font-weight: bold;
+    border: none;
+}
+
+.counter button:hover {
+    border: none;
+    background-color: rgb(228, 228, 228);
+}
+
+.counter button:after {
+    border: none;
+}
+
+.counter {
+    height: 36px;
+    border-radius: 7px;
+    border: 1px solid rgb(180, 180, 180)
+}
+
+.remove {
+    display: block;
+}
+
+.remove i{
+    font-size: 24px;
+}
+
+.modal-foter {
+    padding: 15px;
+}
+
+.div1 {
+    margin: 10px 0;
+}
+
+.div1 span{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.div2 {
+    display: flex;
+    justify-content: center;
+}
+
+.div2 button {
+    margin: 0 5px;
+}

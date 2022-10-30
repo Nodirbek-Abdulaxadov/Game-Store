@@ -27,7 +27,7 @@
 
         public void DeleteImage(string fileName)
         {
-            if (fileName != null)
+            if (fileName != null && fileName != "images/user.png")
             {
                 string uplodFolder = _environment.WebRootPath;
                 string filePath = Path.Combine(uplodFolder, fileName);
