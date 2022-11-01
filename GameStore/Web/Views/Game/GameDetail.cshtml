@@ -14,19 +14,18 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10 d-flex justify-content-center">
-                <img src="~/@Model.Game.ImagePath" class="shadov detail-img" alt="">
+            <img src="~/@Model.Game.ImagePath" id="detail-img" class="shadov detail-img" alt="">
             </div>
             <div class="col-md-1"></div>
         </div>
         <div style="width: 90%; margin: 0 auto;">
           <div style="margin: 40px 50px 40px 0px;">
-            <h2>@Model.Game.Name</h2>
+            <input type="hidden" id="gameId" value="@Model.GameId">
+            <h2 id="name">@Model.Game.Name</h2>
             <div class="d-flex justify-content-between">
-                @{
-                    var gamePrice = Model.Game.Price == 0 ? "$ Free" : $"$ {Model.Game.Price}";
-                }
-                <h3 class="card-title">@gamePrice</h3>
-              <a href="" class="btn btn-primary"> Add to cart <i class="las la-shopping-cart" style="font-size:22px;"></i></a>
+                <h3>$ <span id="price" class="card-title">@Model.Game.Price</span></h3>
+                <h3 ></h3>
+                <a onclick="addbtnClick()" class="btn btn-primary"> Add to cart <i class="las la-shopping-cart" style="font-size:22px;"></i></a>
             </div>
             <hr>
             <div class="categories">

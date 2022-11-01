@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
 </head>
-<body>
+<body onload="getCartItemsCount();">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid mx-4">
@@ -39,6 +39,44 @@
                         <a class="nav-link active btn btn-success px-3" asp-controller="game" asp-action="add">+ Add Game</a>
                     </li>
                 </ul>
+
+                <div class="me-5">
+                    <a onclick="fillData()" class="position-relative cart" data-bs-toggle="modal" data-bs-target="#cartModal">
+                        <i class="las la-shopping-cart"></i>
+                        <span id="itemsCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                        </span>
+                    </a>
+                    <!-- Modal -->
+                    <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Your cart items</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="cart-items" id="datadiv">
+                                        <h4>There is no any items yet!</h4>
+                                    </div>
+                                </div>
+                                <div class="modal-foter">
+                                    <hr>
+                                    <div class="div1 d-flex justify-content-between">
+                                        <span>Total price: </span>
+                                        <span id="total">$ 0</span>
+                                    </div>
+
+                                    <div class="div2">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-warning">Buy now</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <partial name="_LoginPartial.cshtml"/>
                 @*<a class="reg btn btn-outline-success" href="#">Sign in</a>*@
             </div>

@@ -62,7 +62,7 @@
   </button>
   
   <!-- Modal -->
-  <div class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div  class="modal fade" id="cartModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
       <div class="modal-content">
         <div class="modal-header">
@@ -147,39 +147,7 @@
   </div>
 
   <script>
-    var totalPrice = 0;
-    var prices = document.getElementsByClassName('price');
-    var counters = document.getElementsByClassName('count');
-    var total = document.getElementById('total');
-    var counts = [];
-    for (let i = 0; i < counters.length; i++) {
-      counts[i] = counters[i].value;
-    }
-
-    function getTotalPrice() {
-      totalPrice = 0;
-      for (let i = 0; i < counters.length; i++) {
-        totalPrice += parseInt(prices[i].innerText) * parseInt(counts[i]);
-      }
-
-      total.innerHTML = "$ " + totalPrice;
-    }
-
-    document.querySelectorAll('.btn_minus').forEach(btn => btn.addEventListener('click', event => {
-      var index1 = Array.from(document.querySelectorAll('.btn_minus')).indexOf(btn);
-      if (counts[index1] > 1) {
-        counts[index1]--;
-        counters[index1].value = counts[index1];
-      }
-      getTotalPrice();
-    }));
-
-    document.querySelectorAll('.btn_plus').forEach(btn => btn.addEventListener('click', function () {
-      var index = Array.from(document.querySelectorAll('.btn_plus')).indexOf(btn);
-      counts[index]++;
-      counters[index].value = counts[index];
-      getTotalPrice();
-    }));
+    
 
   </script>
             

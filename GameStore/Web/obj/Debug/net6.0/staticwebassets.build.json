@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VZmxlMC4ux5NaX4SGsD5S8aU3IXJ1pLq1P1P7D729Qo=",
+  "Hash": "NVVJCmBfC/Fd6xfUJDtvEsYVg3M0oD/PlycZnT1cInI=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1902,6 +1902,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\0e312982-311a-41ac-a780-dc46ee78d71b_,e 1.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\49e58b12-b023-4cb6-8cec-5176a2213176_logo.png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/49e58b12-b023-4cb6-8cec-5176a2213176_logo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\49e58b12-b023-4cb6-8cec-5176a2213176_logo.png"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\592c7a40-ded4-408c-9391-b66852c01676_carbon (1).png",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/592c7a40-ded4-408c-9391-b66852c01676_carbon (1).png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\592c7a40-ded4-408c-9391-b66852c01676_carbon (1).png"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",

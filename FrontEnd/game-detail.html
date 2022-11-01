@@ -45,17 +45,18 @@
         <div class="row">
             <div class="col-md-1"></div>
             <div class="col-md-10 d-flex justify-content-center">
-                <img src="assets/pubg.jpg" class="shadov detail-img" alt="">
+                <img src="assets/pubg.jpg" id="detail-img" class="shadov detail-img" alt="">
             </div>
             <div class="col-md-1"></div>
         </div>
         <div class="row">
           <div class="col-md-1"></div>
           <div class="col-md-10" style="margin: 40px 50px 40px 0px;">
-            <h2>PUBG MOBILE</h2>
+            <input type="hidden" id="gameId" value="3">
+            <h2 id="name">PUBG MOBILE</h2>
             <div class="d-flex justify-content-between">
-              <h3>$ Free</h3>
-              <a href="" class="btn btn-primary"> Add to cart <i class="las la-shopping-cart" style="font-size:22px;"></i></a>
+              <h3>$ <span id="price">150</span></h3>
+              <a class="btn btn-primary" onclick="addbtnClick()"> Add to cart <i class="las la-shopping-cart" style="font-size:22px;"></i></a>
             </div>
             <hr>
             <div class="categories">
@@ -103,7 +104,9 @@
         </div>
     </div>
 
-    
+    <!-- local db -->
+    <script src="app.js"></script>
+
     <script src="bootsrap/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
