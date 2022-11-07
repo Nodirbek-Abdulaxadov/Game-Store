@@ -25,6 +25,10 @@ namespace BLL
                        CategoryId = c.Id,
                        GameId = i.Id
                    })));
+
+            CreateMap<Order, OrderModel>()
+                .ForMember(rm => rm.OrderDetailIds, r => r.MapFrom(i => i.OrderDetails.Select(o => o.Id)))
+                .ReverseMap();
         }
     }
 }

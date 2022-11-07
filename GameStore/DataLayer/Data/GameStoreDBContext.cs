@@ -16,6 +16,8 @@ namespace DataLayer.Data
         public DbSet<GameCategory>? GameCategories { get; set; }
         public DbSet<CategoryGame>? CategoryGames { get; set; }
         public DbSet<Comment> Comments { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

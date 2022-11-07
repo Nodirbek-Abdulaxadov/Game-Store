@@ -1,5 +1,9 @@
 ﻿var div = document.getElementById('datadiv');
 
+function clearData() {
+    cartItems = [];
+    localStorage.setItem('cartItems', JSON.stringify(cartItems));
+}
 
 function getCartItemsCount() {
     let b = document.getElementById('itemsCount');

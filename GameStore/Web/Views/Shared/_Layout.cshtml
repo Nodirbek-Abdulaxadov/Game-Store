@@ -7,6 +7,11 @@
     <link rel="stylesheet"
           href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
 
+
+    <!-- ✅ load jQuery ✅ -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="~/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Web.styles.css" asp-append-version="true" />
@@ -69,7 +74,7 @@
 
                                     <div class="div2">
                                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-warning">Buy now</button>
+                                        <button onclick="checkOut();" type="button" class="btn btn-warning">Buy now</button>
                                     </div>
                                 </div>
                             </div>
@@ -84,12 +89,28 @@
     </nav>
 
     <div class="container">
-        <main role="main">
+        <main class="main-body" role="main">
             @RenderBody()
         </main>
     </div>
 
-    <script src="~/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script asp-append-version="true">
+        function checkOut() {
+            const items = JSON.parse(localStorage.getItem('cartItems'));
+           
+            jQuery.ajax({
+                method: "POST",
+                url: '/Order/CreateOrderDetails',
+                data: { json: JSON.stringify(items)},
+                dataType: "html",
+                success: function(result) {
+                    $("html").html(result);
+                }
+            });
+
+        }
+    </script>
+    <script src="~/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

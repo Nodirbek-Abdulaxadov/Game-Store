@@ -274,3 +274,4 @@ C:\Users\Nodirbek\Desktop\Game Store\GameStore\Web\bin\Debug\net6.0\BLL.dll
 C:\Users\Nodirbek\Desktop\Game Store\GameStore\Web\bin\Debug\net6.0\BLL.pdb
 C:\Users\Nodirbek\Desktop\Game Store\GameStore\Web\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 C:\Users\Nodirbek\Desktop\Game Store\GameStore\Web\obj\Debug\net6.0\scopedcss\projectbundle\Web.bundle.scp.css
+C:\Users\Nodirbek\Desktop\Game Store\GameStore\Web\bin\Debug\net6.0\libman.json

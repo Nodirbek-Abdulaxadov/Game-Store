@@ -39,6 +39,9 @@ namespace Web.Configurations
             builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<ICommentInterface, CommentRepository>();
             builder.Services.AddTransient<ICommentService, CommentService>();
+            builder.Services.AddTransient<IOrderInterface, OrderRepository>();
+            builder.Services.AddTransient<IOrderService, OrderService>();
+            builder.Services.AddTransient<IOrderDetailInterface, OrderDetailRepository>();
 
             var connectionString = builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
 
@@ -51,7 +54,8 @@ namespace Web.Configurations
             // Add Application Database Context
             builder.Services.AddDbContext<GameStoreDBContext>(options =>
             {
-                options.UseSqlServer(connectionString);
+                options.UseSqlServer(connectionString,
+                                    opt => opt.EnableRetryOnFailure());
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
         }
