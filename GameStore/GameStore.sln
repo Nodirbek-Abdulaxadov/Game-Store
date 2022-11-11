@@ -35,6 +35,8 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "FrontEnd", "..\FrontEnd\", 
 		SlnRelativePath = "..\FrontEnd\"
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameStore.Test", "GameStore.Test\GameStore.Test.csproj", "{0EF4DE13-7E66-45A8-B157-7716904F6A4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{DD2826CA-B4D3-4812-91E4-99E7739DCA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD2826CA-B4D3-4812-91E4-99E7739DCA16}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{DD2826CA-B4D3-4812-91E4-99E7739DCA16}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{0EF4DE13-7E66-45A8-B157-7716904F6A4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EF4DE13-7E66-45A8-B157-7716904F6A4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EF4DE13-7E66-45A8-B157-7716904F6A4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EF4DE13-7E66-45A8-B157-7716904F6A4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

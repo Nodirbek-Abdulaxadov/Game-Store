@@ -5,7 +5,12 @@ using BLL.Services;
 using DataLayer.Data;
 using DataLayer.Interfaces;
 using DataLayer.Repositories;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 using Web.Areas.Identity;
 using Web.Areas.Identity.Data;
 using Web.Data;
@@ -48,8 +53,40 @@ namespace Web.Configurations
             builder.Services.AddDbContext<WebContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            builder.Services.AddDefaultIdentity<WebUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<WebContext>();
+
+            builder.Services.AddDefaultIdentity<WebUser>()
+                   .AddEntityFrameworkStores<WebContext>();
+
+            ////Add Identity
+            //builder.Services.AddIdentity<WebUser, IdentityRole>(options => 
+            //    options.SignIn.RequireConfirmedAccount = true)
+            //    .AddEntityFrameworkStores<WebContext>()
+            //    .AddDefaultTokenProviders();
+
+            //Add Authentication
+            //builder.Services.AddAuthentication(options =>
+            //{
+            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+            //})
+            //   //Add bearer 
+            //   .AddJwtBearer(options =>
+            //   {
+            //       options.SaveToken = true;
+            //       options.RequireHttpsMetadata = false;
+            //       options.TokenValidationParameters = new TokenValidationParameters()
+            //       {
+            //           ValidateIssuerSigningKey = true,
+            //           IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JWT:Secret"])),
+
+            //           ValidateIssuer = true,
+            //           ValidIssuer = builder.Configuration["JWT:Issuer"],
+
+            //           ValidateAudience = true,
+            //           ValidAudience = builder.Configuration["JWT:Audence"]
+            //       };
+            //   });
 
             // Add Application Database Context
             builder.Services.AddDbContext<GameStoreDBContext>(options =>
