@@ -101,7 +101,7 @@ namespace GameStore.Test
                 new GameCategory() { Id = 6, Name = "Puzzle & skill"},
                 new GameCategory() { Id = 7, Name = "Other"}
             };
-        public static List<Game> games = new List<Game>()
+        public static List<Game>? games = new List<Game>()
             {
                 new Game()
                 {
@@ -112,6 +112,7 @@ namespace GameStore.Test
                     ImagePath = "images/pubg.jpg",
                     IsDeleted = false,
                     Sold = 123,
+                    GameCategoryId = 0,
                     Categories = new List<CategoryGame>()
                     {
                         new CategoryGame() {Category = categories[0]},
@@ -127,6 +128,7 @@ namespace GameStore.Test
                     ImagePath = "images/big.jpg",
                     IsDeleted = false,
                     Sold = 13,
+                    GameCategoryId = 0,
                     Categories = new List<CategoryGame>()
                     {
                         new CategoryGame() {Category = categories[1]},
@@ -142,6 +144,7 @@ namespace GameStore.Test
                     ImagePath = "images/race.jpg",
                     IsDeleted = false,
                     Sold = 1212,
+                    GameCategoryId = 0,
                     Categories = new List<CategoryGame>()
                     {
                         new CategoryGame() {Category = categories[0]},
@@ -150,16 +153,6 @@ namespace GameStore.Test
                     }
                 }
             };
-        //public static List<CategoryGame> categoryGames = new List<CategoryGame>()
-        //    {
-        //        new CategoryGame() { GameId = 1, CategoryId = 1},
-        //        new CategoryGame() { GameId = 1, CategoryId = 2},
-        //        new CategoryGame() { GameId = 2, CategoryId = 2},
-        //        new CategoryGame() { GameId = 2, CategoryId = 3},
-        //        new CategoryGame() { GameId = 3, CategoryId = 1},
-        //        new CategoryGame() { GameId = 3, CategoryId = 3},
-        //        new CategoryGame() { GameId = 3, CategoryId = 4}
-        //    };
         public static List<OrderDetail> orderDetails = new List<OrderDetail>()
             {
                 new OrderDetail()
