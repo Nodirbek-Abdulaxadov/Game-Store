@@ -7,5 +7,6 @@ namespace BLL.Interfaces
     {
         Task<OrderModel> CreateOrderAsync(OrderModel order);
         Task<OrderDetail> CreateOrderDetailAsync(int gameId, int quantity, decimal price, int orderId);
+        Task SellGame(int gameId, int quantity);
     }
 }

@@ -35,7 +35,16 @@ namespace BLL.Services
             };
             var model = await _unitOfWork.OrderDetails.AddAsync(orderDetail);
             await _unitOfWork.SaveAsync();
+
             return model;
+        }
+
+        public async Task SellGame(int gameId, int quantity)
+        {
+            var game = await _unitOfWork.Games.GetByIdAsync(gameId);
+            game.Sold = quantity;
+            _unitOfWork.Games.Update(game);
+            await _unitOfWork.SaveAsync();
         }
     }
 }

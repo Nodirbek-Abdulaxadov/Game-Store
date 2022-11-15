@@ -50,6 +50,7 @@ namespace Web.Controllers
                 foreach (CartItem item in list)
                 {
                     orderDetails.Add(await _orderService.CreateOrderDetailAsync(item.id, item.count, item.price, order.Id));
+                    await _orderService.SellGame(item.id, item.count);
                 }
 
                 return View("Success");

@@ -1,4 +1,6 @@
-﻿using DataLayer.Data;
+﻿using AutoMapper;
+using BLL;
+using DataLayer.Data;
 using DataLayer.Entities;
 using Microsoft.EntityFrameworkCore;
 using Web.Areas.Identity.Data;
@@ -184,6 +186,14 @@ namespace GameStore.Test
                     OrderDetails = orderDetails.GetRange(0, 2)
                 }
             };
+
+        public static IMapper CreateMapperProfile()
+        {
+            var myProfile = new AutomapperProfile();
+            var configuration = new MapperConfiguration(cfg => cfg.AddProfile(myProfile));
+
+            return new Mapper(configuration);
+        }
 
         private static void SeedData(GameStoreDBContext context)
         {

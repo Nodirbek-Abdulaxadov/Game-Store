@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9Zi6cS3xnczDuQ5hsd5DSW29KcIp2Tx8L84tHQTDipU=",
+  "Hash": "4V8+5xaepvVjdPPN+5cWZ+zEg6XcKRydaJH4ai4KjVk=",
   "Source": "Web",
   "BasePath": "_content/Web",
   "Mode": "Default",
@@ -1955,6 +1955,40 @@
       "OriginalItemSpec": "wwwroot\\images\\592c7a40-ded4-408c-9391-b66852c01676_carbon (1).png"
     },
     {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\6b84ecfe-e11e-4a6b-b125-963b04949ba1_Bad-Blood-Yolks-2-Confident.ico",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/6b84ecfe-e11e-4a6b-b125-963b04949ba1_Bad-Blood-Yolks-2-Confident.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\6b84ecfe-e11e-4a6b-b125-963b04949ba1_Bad-Blood-Yolks-2-Confident.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\88a89c75-aca1-47e0-a585-9ddd9f4d57ad_Yohproject-Crayon-Cute-Camera.ico",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/88a89c75-aca1-47e0-a585-9ddd9f4d57ad_Yohproject-Crayon-Cute-Camera.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\88a89c75-aca1-47e0-a585-9ddd9f4d57ad_Yohproject-Crayon-Cute-Camera.ico"
+    },
+    {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\b2774def-6099-4eb1-86f6-820a7c094a6b_Bad-Blood-Yolks-2-Confident.ico",
       "SourceId": "Web",
       "SourceType": "Discovered",
@@ -1970,6 +2004,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\b2774def-6099-4eb1-86f6-820a7c094a6b_Bad-Blood-Yolks-2-Confident.ico"
+    },
+    {
+      "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\bca80d6b-9161-40b3-b3c2-158538f53191_Bad-Blood-Yolks-2-X3.ico",
+      "SourceId": "Web",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\",
+      "BasePath": "_content/Web",
+      "RelativePath": "images/bca80d6b-9161-40b3-b3c2-158538f53191_Bad-Blood-Yolks-2-X3.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\bca80d6b-9161-40b3-b3c2-158538f53191_Bad-Blood-Yolks-2-X3.ico"
     },
     {
       "Identity": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\Web\\wwwroot\\images\\big.jpg",

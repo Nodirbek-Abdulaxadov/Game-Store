@@ -104,9 +104,11 @@ namespace Web.Controllers
                     return View(viewModel);
                 }
 
-                var result = await _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
+                var result = _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
                                                         _fileService.UploadImage(viewModel.ImageFile), viewModel.SelectedCategories.Where(c => c.IsChecked == true).Select(i => i.Name).ToList());
-                return RedirectToAction("gamedetail", result);
+                result.Wait();
+                
+                return RedirectToAction("Index");
             }
 
             var categories = await _categoryService.GetAllGameCategoriesAsync();

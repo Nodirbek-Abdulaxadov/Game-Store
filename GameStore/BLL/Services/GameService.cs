@@ -83,7 +83,8 @@ namespace BLL.Services
                 Categories = categories.Select(c => _mapper.Map<GameCategoryModel>(categoryList.FirstOrDefault(i => i.Name == c))).ToList()
             };
 
-            var model = await _unitOfWork.Games.AddAsync(_mapper.Map<Game>(newGame));
+            var game = _mapper.Map<Game>(newGame);
+            var model = await _unitOfWork.Games.AddAsync(game);
             await _unitOfWork.SaveAsync();
 
             return _mapper.Map<GameModel>(model);
