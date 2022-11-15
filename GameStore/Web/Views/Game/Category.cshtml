@@ -3,6 +3,11 @@
 }
 
 @model GameFilterViewModel
+@inject UserManager<WebUser> UserManager
+
+@{
+    var userId = UserManager.GetUserId(User);
+}
 
 <a asp-controller="game" asp-action="index" class="btn btn-primary mt-2"><i class="las la-arrow-left"></i> Back</a>
 @{
@@ -52,7 +57,7 @@
             <div class="col-md-4 p-2">
                 <div class="card text-bg-dark">
                     <img src="~/@game.ImagePath" class="card-img cardimg" alt="...">
-                    <a asp-controller="game" asp-action="gamedetail" asp-route-id="@game.Id" class="game-link">
+                    <a asp-controller="game" asp-action="gamedetail" asp-route-gameId="@game.Id" asp-route-userId="@userId" class="game-link">
                         <div class="card-img-overlay card-div">
                             @{
                                 var gamePrice = game.Price == 0 ? "Free" : $"$ {game.Price}";

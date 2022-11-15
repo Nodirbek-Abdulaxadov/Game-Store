@@ -21,12 +21,12 @@ namespace DataLayer.Data
             {
                 new Game()
                 {
-                    Name = "PUBG",
-                    Price = 0,
-                    Description = "Gameplay. PUBG is a player versus player shooter game in which up to one hundred players fight in a battle royale, a type of large-scale last man standing deathmatch where players fight to remain the last alive.",
-                    ImagePath = "images/pubg.jpg",
+                    Name = "Need For Speed",
+                    Price = 99,
+                    Description = "The series generally centers around illicit street racing and tasks players to complete various types of races while evading the local law enforcement in police pursuits.",
+                    ImagePath = "images/race.jpg",
                     IsDeleted = false,
-                    Sold = 123,
+                    Sold = 9,
                     Categories = new List<CategoryGame>()
                     {
                         new CategoryGame() {Category = Categories.First()},
@@ -50,7 +50,7 @@ namespace DataLayer.Data
                 new Game()
                 {
                     Name = "PUBG",
-                    Price = 230,
+                    Price = 5,
                     Description = "Gameplay. PUBG is a player versus player shooter game in which up to one hundred players fight in a battle royale, a type of large-scale last man standing deathmatch where players fight to remain the last alive.",
                     ImagePath = "images/pubg.jpg",
                     IsDeleted = false,

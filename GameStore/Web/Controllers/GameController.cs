@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Models;
+using DataLayer.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -104,11 +105,12 @@ namespace Web.Controllers
                     return View(viewModel);
                 }
 
-                var result = _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
+                var result = await _gameService.AddGameAsync(viewModel.Name, viewModel.Description, viewModel.Price,
                                                         _fileService.UploadImage(viewModel.ImageFile), viewModel.SelectedCategories.Where(c => c.IsChecked == true).Select(i => i.Name).ToList());
-                result.Wait();
-                
-                return RedirectToAction("Index");
+
+
+                var vm = await GetGameDetails(result.Id, "");
+                return RedirectToAction("GameDetail", vm);
             }
 
             var categories = await _categoryService.GetAllGameCategoriesAsync();

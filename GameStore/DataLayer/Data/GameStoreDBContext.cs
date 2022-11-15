@@ -9,7 +9,7 @@ namespace DataLayer.Data
         public GameStoreDBContext(DbContextOptions<GameStoreDBContext> options)
             : base(options)
         {
-            //Database.EnsureCreated();
+            Database.EnsureCreated();
         }
 
         public DbSet<Game>? Games { get; set; }

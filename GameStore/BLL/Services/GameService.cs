@@ -43,7 +43,7 @@ namespace BLL.Services
             if (!(string.IsNullOrEmpty(name)))
                 return gameModels.Where(i => i.Name.ToLower().Contains(name.ToLower())).ToList();
 
-            if (Games.Count() == 0)
+            if (Games.Count() == 0 && sort != SortType.Free)
             {
                 AddMockData().Wait();
             }
@@ -86,8 +86,9 @@ namespace BLL.Services
             var game = _mapper.Map<Game>(newGame);
             var model = await _unitOfWork.Games.AddAsync(game);
             await _unitOfWork.SaveAsync();
+            newGame.Id = model.Id;
 
-            return _mapper.Map<GameModel>(model);
+            return newGame;
         }
 
         public async Task<bool> Exist(string name)

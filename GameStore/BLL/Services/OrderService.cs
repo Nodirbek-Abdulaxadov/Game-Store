@@ -42,7 +42,7 @@ namespace BLL.Services
         public async Task SellGame(int gameId, int quantity)
         {
             var game = await _unitOfWork.Games.GetByIdAsync(gameId);
-            game.Sold = quantity;
+            game.Sold += quantity;
             _unitOfWork.Games.Update(game);
             await _unitOfWork.SaveAsync();
         }

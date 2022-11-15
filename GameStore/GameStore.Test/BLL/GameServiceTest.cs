@@ -57,7 +57,7 @@ namespace GameStore.Test.BLL
                         Id = 1,
                         Name = "game1",
                         Description= "Description1",
-                        Sold = 1,
+                        Sold = 0,
                         IsDeleted= false,
                         ImagePath = "path1",
                         Price = 100
@@ -67,7 +67,7 @@ namespace GameStore.Test.BLL
                         Id = 2,
                         Name = "game2",
                         Description= "Description2",
-                        Sold = 2,
+                        Sold = 0,
                         IsDeleted= false,
                         ImagePath = "path2",
                         Price = 200
@@ -81,7 +81,7 @@ namespace GameStore.Test.BLL
                         Id = 1,
                         Name = "game1",
                         Description= "Description1",
-                        Sold = 1,
+                        Sold = 0,
                         IsDeleted= false,
                         ImagePath = "path1",
                         Price = 100
@@ -91,7 +91,7 @@ namespace GameStore.Test.BLL
                         Id = 2,
                         Name = "game2",
                         Description= "Description2",
-                        Sold = 2,
+                        Sold = 0,
                         IsDeleted= false,
                         ImagePath = "path2",
                         Price = 200
