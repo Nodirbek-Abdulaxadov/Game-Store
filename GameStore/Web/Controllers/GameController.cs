@@ -75,7 +75,7 @@ namespace Web.Controllers
             return View(detailModel);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -87,7 +87,7 @@ namespace Web.Controllers
             return View(model);
         }
 
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(AddGameViewModel viewModel)
         {
