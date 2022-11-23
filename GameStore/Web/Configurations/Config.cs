@@ -48,51 +48,18 @@ namespace Web.Configurations
             builder.Services.AddTransient<IOrderService, OrderService>();
             builder.Services.AddTransient<IOrderDetailInterface, OrderDetailRepository>();
 
-            var connectionString = builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
+            var connectionString = @"Filename=GameStoreDB.db"; //builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
 
             builder.Services.AddDbContext<WebContext>(options =>
-                options.UseSqlServer(connectionString));
-
+                options.UseSqlite(connectionString));
 
             builder.Services.AddDefaultIdentity<WebUser>()
                    .AddEntityFrameworkStores<WebContext>();
 
-            ////Add Identity
-            //builder.Services.AddIdentity<WebUser, IdentityRole>(options => 
-            //    options.SignIn.RequireConfirmedAccount = true)
-            //    .AddEntityFrameworkStores<WebContext>()
-            //    .AddDefaultTokenProviders();
-
-            //Add Authentication
-            //builder.Services.AddAuthentication(options =>
-            //{
-            //    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-            //    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            //})
-            //   //Add bearer 
-            //   .AddJwtBearer(options =>
-            //   {
-            //       options.SaveToken = true;
-            //       options.RequireHttpsMetadata = false;
-            //       options.TokenValidationParameters = new TokenValidationParameters()
-            //       {
-            //           ValidateIssuerSigningKey = true,
-            //           IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration["JWT:Secret"])),
-
-            //           ValidateIssuer = true,
-            //           ValidIssuer = builder.Configuration["JWT:Issuer"],
-
-            //           ValidateAudience = true,
-            //           ValidAudience = builder.Configuration["JWT:Audence"]
-            //       };
-            //   });
-
             // Add Application Database Context
             builder.Services.AddDbContext<GameStoreDBContext>(options =>
             {
-                options.UseSqlServer(connectionString,
-                                    opt => opt.EnableRetryOnFailure());
+                options.UseSqlite(connectionString);
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
         }
