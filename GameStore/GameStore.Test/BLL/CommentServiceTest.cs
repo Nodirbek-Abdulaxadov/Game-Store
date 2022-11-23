@@ -137,7 +137,7 @@ namespace GameStore.Test.BLL
                     Body = "body1",
                     IsDeleted= false,
                     IsEdited= false,
-                    CommentedTime= DateTime.Now,
+                    CommentedTime= DateTime.Now.ToString(),
                     GameId = 1,
                     User = new UserModel() {Id = "id1", AvatarPath = "path1", FirstName="F1", LastName = "L1"}
                 },
@@ -147,7 +147,7 @@ namespace GameStore.Test.BLL
                     Body = "body2",
                     IsDeleted= false,
                     IsEdited= false,
-                    CommentedTime= DateTime.Now,
+                    CommentedTime= DateTime.Now.ToString(),
                     GameId = 1,
                     User = new UserModel() {Id = "id2", AvatarPath = "path2", FirstName="F2", LastName = "L2"}
                 }

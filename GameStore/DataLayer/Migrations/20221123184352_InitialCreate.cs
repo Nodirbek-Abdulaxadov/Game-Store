@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -19,7 +18,7 @@ namespace DataLayer.Migrations
                     Body = table.Column<string>(type: "text", nullable: false),
                     IsEdited = table.Column<bool>(type: "boolean", nullable: false),
                     IsDeleted = table.Column<bool>(type: "boolean", nullable: false),
-                    CommentedTime = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    CommentedTime = table.Column<string>(type: "text", nullable: false),
                     GameId = table.Column<int>(type: "integer", nullable: false),
                     UserId = table.Column<string>(type: "text", nullable: false),
                     RepliedCommentId = table.Column<int>(type: "integer", nullable: false)

@@ -24,7 +24,7 @@ namespace BLL.Services
                 UserId = userId,
                 IsEdited = false,
                 RepliedCommentId = 0,
-                CommentedTime = DateTime.Now
+                CommentedTime = DateTime.Now.ToString()
             };
             await _unitOfWork.Comments.AddAsync(comment);
             await _unitOfWork.SaveAsync();
@@ -41,7 +41,7 @@ namespace BLL.Services
                 IsEdited = false,
                 IsDeleted = false,
                 RepliedCommentId = commentId,
-                CommentedTime = DateTime.Now
+                CommentedTime = DateTime.Now.ToString()
             };
 
             await _unitOfWork.Comments.AddAsync(comment);
@@ -74,7 +74,7 @@ namespace BLL.Services
             var comment = await _unitOfWork.Comments.GetByIdAsync(commentId);
             comment.Body = text;
             comment.IsEdited = true;
-            comment.CommentedTime = DateTime.Now;
+            comment.CommentedTime = DateTime.Now.ToString();
             _unitOfWork.Comments.Update(comment);
             await _unitOfWork.SaveAsync();
             return commentId;
@@ -96,7 +96,7 @@ namespace BLL.Services
                     Id = comment.Id,
                     GameId = comment.GameId,
                     Body = comment.Body,
-                    CommentedTime = comment.CommentedTime,
+                    CommentedTime = comment.CommentedTime.ToString(),
                     IsEdited = comment.IsEdited,
                     IsDeleted = comment.IsDeleted,
                     User = user,

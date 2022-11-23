@@ -63,7 +63,7 @@ namespace GameStore.Test
                 {
                     Id = 1,
                     Body = "body1",
-                    CommentedTime= DateTime.Now,
+                    CommentedTime= DateTime.Now.ToString(),
                     RepliedCommentId = 0,
                     GameId = 1,
                     IsDeleted = false,
@@ -74,7 +74,7 @@ namespace GameStore.Test
                 {
                     Id = 2,
                     Body = "body2",
-                    CommentedTime= DateTime.Now,
+                    CommentedTime= DateTime.Now.ToString(),
                     RepliedCommentId = 1,
                     GameId = 1,
                     IsDeleted = false,
@@ -85,7 +85,7 @@ namespace GameStore.Test
                 {
                     Id = 3,
                     Body = "body3",
-                    CommentedTime= DateTime.Now,
+                    CommentedTime= DateTime.Now.ToString(),
                     RepliedCommentId = 0,
                     GameId = 2,
                     IsDeleted = true,
