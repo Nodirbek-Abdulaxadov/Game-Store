@@ -48,10 +48,14 @@ namespace Web.Configurations
             builder.Services.AddTransient<IOrderService, OrderService>();
             builder.Services.AddTransient<IOrderDetailInterface, OrderDetailRepository>();
 
-            var connectionString = @"Filename=GameStoreDB.db"; //builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
+            var connectionString = builder.Configuration.GetConnectionString("PostgreDB");
+                //@"Filename=GameStoreDB.db"; 
+                //builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
 
+            //builder.Services.AddDbContext<WebContext>(options =>
+            //    options.UseSqlite(connectionString));
             builder.Services.AddDbContext<WebContext>(options =>
-                options.UseSqlite(connectionString));
+                  options.UseNpgsql(connectionString));
 
             builder.Services.AddDefaultIdentity<WebUser>()
                    .AddEntityFrameworkStores<WebContext>();
@@ -59,7 +63,7 @@ namespace Web.Configurations
             // Add Application Database Context
             builder.Services.AddDbContext<GameStoreDBContext>(options =>
             {
-                options.UseSqlite(connectionString);
+                options.UseNpgsql(connectionString);
                 options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             });
         }
