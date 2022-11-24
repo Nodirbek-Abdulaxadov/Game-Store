@@ -75,7 +75,7 @@ namespace Web.Controllers
             return View(detailModel);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> Add()
         {
@@ -87,7 +87,7 @@ namespace Web.Controllers
             return View(model);
         }
 
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> Add(AddGameViewModel viewModel)
         {
@@ -192,7 +192,8 @@ namespace Web.Controllers
 
                 game = await _gameService.UpdateGame(game);
 
-                return RedirectToAction("GameDetail", game);
+                var vm = await GetGameDetails(game.Id, "");
+                return RedirectToAction("GameDetail", vm);
             }
 
             return View(viewModel);

@@ -127,7 +127,7 @@
                                 <p class="mt-2">@reply.Body</p>
                                 @if (reply.User.Id == userId)
                                 {
-                                    <a href="" class="text-success">Edit</a>
+                                    <a asp-controller="comment" asp-action="edit" asp-route-text="@reply.Body" asp-route-commentId="@reply.Id" asp-route-gameId="@Model.Game.Id" asp-route-userId="@userId" class="text-success">Edit</a>
                                     <a asp-controller="comment" asp-action="delete" asp-route-commentId="@reply.Id" asp-route-gameId="@Model.Game.Id" asp-route-userId="@userId"
                        onclick="return confirm('Are you sure delete your comment?');" class="text-danger">Delete</a>
                                 }

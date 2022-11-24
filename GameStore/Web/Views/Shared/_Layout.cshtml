@@ -98,7 +98,8 @@
         function checkOut() {
             const items = JSON.parse(localStorage.getItem('cartItems'));
            
-            jQuery.ajax({
+            if (items.length != 0 || items == null) {
+                jQuery.ajax({
                 method: "POST",
                 url: '/Order/CreateOrderDetails',
                 data: { json: JSON.stringify(items)},
@@ -106,8 +107,10 @@
                 success: function(result) {
                     $("html").html(result);
                 }
-            });
-
+            });}
+            else {
+                alert('Your cart is empty!');
+            }
         }
     </script>
     <script src="~/bootstrap/dist/js/bootstrap.bundle.min.js" asp-append-version="true"></script>
