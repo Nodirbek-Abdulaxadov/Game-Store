@@ -48,24 +48,24 @@ namespace Web.Configurations
             builder.Services.AddTransient<IOrderService, OrderService>();
             builder.Services.AddTransient<IOrderDetailInterface, OrderDetailRepository>();
 
-            var connectionString = builder.Configuration.GetConnectionString("PostgreDB");
-                //@"Filename=GameStoreDB.db"; 
-                //builder.Configuration.GetConnectionString("LocalDB") ?? throw new InvalidOperationException("Connection string 'WebContextConnection' not found.");
+            #region Adding Database
 
-            //builder.Services.AddDbContext<WebContext>(options =>
-            //    options.UseSqlite(connectionString));
-            builder.Services.AddDbContext<WebContext>(options =>
-                  options.UseNpgsql(connectionString));
+            //using SqlServer
+            //builder.AddSqlServer();
+
+            //using Sqlite
+            //builder.AddSqlite();
+
+            //using Local PostgreSql
+            builder.AddPostgresql();
+
+            //using PostgreSql on production
+            //builder.AddPostgresqlForProd();
 
             builder.Services.AddDefaultIdentity<WebUser>()
                    .AddEntityFrameworkStores<WebContext>();
+            #endregion
 
-            // Add Application Database Context
-            builder.Services.AddDbContext<GameStoreDBContext>(options =>
-            {
-                options.UseNpgsql(connectionString);
-                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-            });
         }
 
         public static void AddMiddlewares(this WebApplication app)
@@ -84,6 +84,58 @@ namespace Web.Configurations
                 pattern: "{controller=Game}/{action=Index}/{id?}");
 
             app.Run();
+        }
+
+        public static void AddSqlServer(this WebApplicationBuilder builder)
+        {
+            var connectionString = builder.Configuration.GetConnectionString("LocalDB");
+            builder.Services.AddDbContext<WebContext>(options =>
+                  options.UseSqlServer(connectionString));
+
+            builder.Services.AddDbContext<GameStoreDBContext>(options =>
+            {
+                options.UseSqlServer(connectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
+        }
+
+        public static void AddSqlite(this WebApplicationBuilder builder)
+        {
+            var connectionString = @"Filename=GameStoreDB.db";
+            builder.Services.AddDbContext<WebContext>(options =>
+                  options.UseSqlite(connectionString));
+
+            builder.Services.AddDbContext<GameStoreDBContext>(options =>
+            {
+                options.UseSqlite(connectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
+        }
+
+        public static void AddPostgresql(this WebApplicationBuilder builder)
+        {
+            var connectionString = builder.Configuration.GetConnectionString("LocalPostgreDB");
+            builder.Services.AddDbContext<WebContext>(options =>
+                  options.UseNpgsql(connectionString));
+
+            builder.Services.AddDbContext<GameStoreDBContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
+        }
+
+        public static void AddPostgresqlForProd(this WebApplicationBuilder builder)
+        {
+            var connectionString = builder.Configuration.GetConnectionString("PostgreDB");
+            builder.Services.AddDbContext<WebContext>(options =>
+                  options.UseNpgsql(connectionString));
+
+            builder.Services.AddDbContext<GameStoreDBContext>(options =>
+            {
+                options.UseNpgsql(connectionString);
+                options.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+            });
         }
     }
 }
