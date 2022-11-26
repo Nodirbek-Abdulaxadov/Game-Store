@@ -24,7 +24,7 @@ namespace Web.Configurations
         {
             builder.Services.AddControllersWithViews();
 
-            // Add Automapper
+            #region Add Automapper
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new AutomapperProfile());
@@ -32,7 +32,9 @@ namespace Web.Configurations
 
             IMapper mapper = mapperConfig.CreateMapper();
             builder.Services.AddSingleton(mapper);
+            #endregion
 
+            #region Add DI services
             // Add repositories and services to AppService collection
             builder.Services.AddScoped<IFileService, FileService>();
             builder.Services.AddTransient<IGameInterface, GameRepository>();
@@ -47,6 +49,7 @@ namespace Web.Configurations
             builder.Services.AddTransient<IOrderInterface, OrderRepository>();
             builder.Services.AddTransient<IOrderService, OrderService>();
             builder.Services.AddTransient<IOrderDetailInterface, OrderDetailRepository>();
+            #endregion
 
             #region Adding Database
 
@@ -54,16 +57,17 @@ namespace Web.Configurations
             //builder.AddSqlServer();
 
             //using Sqlite
-            //builder.AddSqlite();
+            builder.AddSqlite();
 
             //using Local PostgreSql
-            builder.AddPostgresql();
+            //builder.AddPostgresql();
 
             //using PostgreSql on production
             //builder.AddPostgresqlForProd();
 
             builder.Services.AddDefaultIdentity<WebUser>()
                    .AddEntityFrameworkStores<WebContext>();
+
             #endregion
 
         }
