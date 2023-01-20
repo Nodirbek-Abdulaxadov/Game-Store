@@ -1,15 +1,30 @@
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\bin\Debug\net6.0\BLL.deps.json
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\bin\Debug\net6.0\BLL.dll
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\bin\Debug\net6.0\BLL.pdb
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\bin\Debug\net6.0\DataLayer.dll
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\bin\Debug\net6.0\DataLayer.pdb
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.csproj.AssemblyReference.cache
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.AssemblyInfoInputs.cache
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.AssemblyInfo.cs
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.csproj.CoreCompileInputs.cache
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.csproj.CopyComplete
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.dll
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\refint\BLL.dll
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\BLL.pdb
-C:\Users\Nodirbek\Desktop\Game Store\GameStore\BLL\obj\Debug\net6.0\ref\BLL.dll
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/bin/Debug/net6.0/BLL.deps.json
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/bin/Debug/net6.0/BLL.dll
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/bin/Debug/net6.0/BLL.pdb
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/bin/Debug/net6.0/DataLayer.dll
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/bin/Debug/net6.0/DataLayer.pdb
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.csproj.AssemblyReference.cache
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.AssemblyInfoInputs.cache
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.AssemblyInfo.cs
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.csproj.CoreCompileInputs.cache
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.csproj.CopyComplete
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.dll
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/refint/BLL.dll
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/BLL.pdb
+C:/Users/Nodirbek/Desktop/Game Store/GameStore/BLL/obj/Debug/net6.0/ref/BLL.dll
+/workspaces/Game-Store/BLL/bin/Debug/net6.0/BLL.deps.json
+/workspaces/Game-Store/BLL/bin/Debug/net6.0/BLL.dll
+/workspaces/Game-Store/BLL/bin/Debug/net6.0/BLL.pdb
+/workspaces/Game-Store/BLL/bin/Debug/net6.0/DataLayer.dll
+/workspaces/Game-Store/BLL/bin/Debug/net6.0/DataLayer.pdb
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.csproj.AssemblyReference.cache
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.GeneratedMSBuildEditorConfig.editorconfig
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.AssemblyInfoInputs.cache
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.AssemblyInfo.cs
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.csproj.CoreCompileInputs.cache
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.csproj.CopyComplete
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.dll
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/refint/BLL.dll
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/BLL.pdb
+/workspaces/Game-Store/BLL/obj/Debug/net6.0/ref/BLL.dll
