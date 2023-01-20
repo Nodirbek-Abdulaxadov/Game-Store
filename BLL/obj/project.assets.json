@@ -2218,11 +2218,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\Nodirbek\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -2237,15 +2237,14 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\GameStore\\DataLayer\\DataLayer.csproj"
+            "C:\\Users\\Nodirbek\\Desktop\\Game Store\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\Nodirbek\\Desktop\\Game Store\\DataLayer\\DataLayer.csproj"
             }
           }
         }
@@ -2285,7 +2284,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }
